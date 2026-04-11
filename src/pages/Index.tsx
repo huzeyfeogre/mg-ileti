@@ -4,7 +4,7 @@ import FadeInSection from "@/components/FadeInSection";
 import {
   Shield, Zap, BadgeDollarSign, Users,
   Smartphone, Battery, Code, Cpu, Droplets, Plug,
-  ShoppingBag, Headphones, MonitorSmartphone, Layers,
+  ShoppingBag, Headphones, Layers,
   Star, MapPin, Phone, Clock,
 } from "lucide-react";
 
