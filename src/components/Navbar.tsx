@@ -7,6 +7,8 @@ const navLinks = [
   { to: "/", label: "Ana Sayfa" },
   { to: "/hizmetlerimiz", label: "Hizmetlerimiz" },
   { to: "/urunlerimiz", label: "Ürünlerimiz" },
+  { to: "/tamir-ettiklerimiz", label: "Tamir Ettiğimiz Cihazlar" },
+  { to: "/satilik-telefonlar", label: "Satılık Telefonlar" },
   { to: "/hakkimizda", label: "Hakkımızda" },
   { to: "/iletisim", label: "İletişim" },
 ];
