@@ -4,9 +4,9 @@ import { Target, Eye, Wrench, ShoppingCart, Award, Clock, Users, ThumbsUp, Check
 const brands = ["Apple", "Samsung", "Xiaomi", "Huawei", "Oppo", "Realme", "OnePlus", "Nothing", "Google Pixel"];
 
 const team = [
-  { name: "Emre Güneş", role: "Baş Teknisyen", desc: "10 yılı aşkın deneyimle mikroişlemci seviyesinde tamir uzmanı. Apple ve Samsung cihazlarında uzmanlaşmış, anakart tamiri konusunda bölgenin en tecrübeli isimlerinden biri." },
-  { name: "Selin Arslan", role: "Satış Sorumlusu", desc: "Müşteri memnuniyetini ön planda tutan aksesuar danışmanı. Doğru ürünü bulmanızda size yardımcı olur, tüm markaların aksesuarları hakkında detaylı bilgi sahibidir." },
-  { name: "Can Demir", role: "Yazılım Uzmanı", desc: "Yazılım sorunları, veri kurtarma ve cihaz optimizasyonu konusunda uzman. Android ve iOS platformlarında derin bilgi birikimine sahip." },
+  { name: "Murat Bey", role: "İşletme Sahibi", desc: "MG İletişim'in kurucusu. Yıllarca sektörde edindiği tecrübeyle ekibi yönlendiren, müşteri memnuniyetini her şeyin önünde tutan lider." },
+  { name: "Hamza", role: "Teknisyen", desc: "Ekran değişimi, anakart tamiri ve mikro lehimleme konusunda uzman. Tüm marka ve modellerde hızlı ve kaliteli tamir yapıyor." },
+  { name: "Arif", role: "Teknisyen & Satış", desc: "Hem tamir hem aksesuar satışında deneyimli. Müşterilere en uygun çözümü sunarak güler yüzlü hizmet veriyor." },
 ];
 
 const stats = [
@@ -124,12 +124,12 @@ const AboutPage = () => (
           <FadeInSection key={t.name}>
             <div className="p-6 rounded-xl bg-card border border-border/50 text-center hover-lift h-full">
               <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                {t.role.includes("Teknisyen") ? (
-                  <Wrench className="w-7 h-7 text-primary" />
-                ) : t.role.includes("Yazılım") ? (
-                  <Smartphone className="w-7 h-7 text-primary" />
-                ) : (
+                {t.role.includes("İşletme") ? (
+                  <Users className="w-7 h-7 text-primary" />
+                ) : t.role.includes("Satış") ? (
                   <ShoppingCart className="w-7 h-7 text-primary" />
+                ) : (
+                  <Wrench className="w-7 h-7 text-primary" />
                 )}
               </div>
               <h3 className="font-heading font-semibold text-lg">{t.name}</h3>
