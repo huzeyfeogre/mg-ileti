@@ -41,14 +41,17 @@ const Index = () => (
   <>
     {/* Hero */}
     <section className="relative min-h-[90vh] flex items-center circuit-pattern overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/90 to-background" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
       <div className="container mx-auto px-4 relative z-10 text-center">
         <FadeInSection>
+          <div className="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
+            📍 Sultanbeyli, İstanbul
+          </div>
           <h1 className="font-heading text-4xl sm:text-5xl md:text-7xl font-extrabold leading-tight mb-6">
-            Telefonunuz <span className="text-primary">Bizimle Güvende</span>
+            Telefonunuz <span className="text-gradient">Bizimle Güvende</span> 🔧
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-            Sultanbeyli'nin Güvenilir Telefon Tamir & Aksesuar Merkezi
+            Hızlı tamir, uygun fiyat, garantili hizmet — hemen randevu alın!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="glow-pulse text-base">
@@ -66,8 +69,9 @@ const Index = () => (
     <section className="py-20">
       <div className="container mx-auto px-4">
         <FadeInSection>
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-center mb-12">
-            Neden <span className="text-primary">Biz?</span>
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-center mb-4">
+            Neden <span className="text-gradient">Biz?</span></h2>
+          <p className="text-center text-muted-foreground mb-12 max-w-lg mx-auto">Binlerce müşterinin güvenini kazandık ✌️</p>
           </h2>
         </FadeInSection>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -88,8 +92,9 @@ const Index = () => (
     <section className="py-20 bg-card/30">
       <div className="container mx-auto px-4">
         <FadeInSection>
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-center mb-12">
-            Hizmetlerimiz
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-center mb-4">
+            Hizmetlerimiz 🛠️</h2>
+          <p className="text-center text-muted-foreground mb-12 max-w-lg mx-auto">Profesyonel ekipman, deneyimli ekip</p>
           </h2>
         </FadeInSection>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -115,8 +120,9 @@ const Index = () => (
     <section className="py-20">
       <div className="container mx-auto px-4">
         <FadeInSection>
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-center mb-12">
-            Ürünlerimiz
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-center mb-4">
+            Ürünlerimiz 🎧</h2>
+          <p className="text-center text-muted-foreground mb-12 max-w-lg mx-auto">Orijinal ve uyumlu aksesuarlar</p>
           </h2>
         </FadeInSection>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -142,8 +148,9 @@ const Index = () => (
     <section className="py-20 bg-card/30">
       <div className="container mx-auto px-4">
         <FadeInSection>
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-center mb-12">
-            Müşteri Yorumları
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-center mb-4">
+            Müşteri Yorumları ⭐</h2>
+          <p className="text-center text-muted-foreground mb-12 max-w-lg mx-auto">Müşterilerimiz ne diyor?</p>
           </h2>
         </FadeInSection>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
