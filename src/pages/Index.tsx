@@ -72,7 +72,6 @@ const Index = () => (
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-center mb-4">
             Neden <span className="text-gradient">Biz?</span></h2>
           <p className="text-center text-muted-foreground mb-12 max-w-lg mx-auto">Binlerce müşterinin güvenini kazandık ✌️</p>
-          </h2>
         </FadeInSection>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {whyUs.map((item) => (
@@ -95,7 +94,6 @@ const Index = () => (
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-center mb-4">
             Hizmetlerimiz 🛠️</h2>
           <p className="text-center text-muted-foreground mb-12 max-w-lg mx-auto">Profesyonel ekipman, deneyimli ekip</p>
-          </h2>
         </FadeInSection>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s) => (
@@ -123,7 +121,6 @@ const Index = () => (
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-center mb-4">
             Ürünlerimiz 🎧</h2>
           <p className="text-center text-muted-foreground mb-12 max-w-lg mx-auto">Orijinal ve uyumlu aksesuarlar</p>
-          </h2>
         </FadeInSection>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {products.map((p) => (
@@ -151,7 +148,6 @@ const Index = () => (
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-center mb-4">
             Müşteri Yorumları ⭐</h2>
           <p className="text-center text-muted-foreground mb-12 max-w-lg mx-auto">Müşterilerimiz ne diyor?</p>
-          </h2>
         </FadeInSection>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {testimonials.map((t) => (
