@@ -1,76 +1,218 @@
 import { Link, useLocation } from "react-router-dom";
-import { Smartphone, Phone, Menu, X } from "lucide-react";
+import { Smartphone, Phone, Menu, X, ChevronDown, Wrench, ShoppingBag, Monitor, PhoneCall } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
-const navLinks = [
+const mainLinks = [
   { to: "/", label: "Ana Sayfa" },
-  { to: "/hizmetlerimiz", label: "Hizmetlerimiz" },
-  { to: "/urunlerimiz", label: "Ürünlerimiz" },
-  { to: "/tamir-ettiklerimiz", label: "Tamir Ettiğimiz Cihazlar" },
-  { to: "/satilik-telefonlar", label: "Satılık Telefonlar" },
   { to: "/hakkimizda", label: "Hakkımızda" },
   { to: "/iletisim", label: "İletişim" },
+];
+
+const dropdownGroups = [
+  {
+    label: "Hizmetler",
+    items: [
+      { to: "/hizmetlerimiz", label: "Hizmetlerimiz", icon: Wrench, desc: "Tamir & bakım hizmetleri" },
+      { to: "/tamir-ettiklerimiz", label: "Tamir Ettiğimiz Cihazlar", icon: Monitor, desc: "Desteklenen marka ve modeller" },
+    ],
+  },
+  {
+    label: "Mağaza",
+    items: [
+      { to: "/urunlerimiz", label: "Ürünlerimiz", icon: ShoppingBag, desc: "Aksesuar & yedek parça" },
+      { to: "/satilik-telefonlar", label: "Satılık Telefonlar", icon: Smartphone, desc: "Garantili ikinci el telefonlar" },
+    ],
+  },
 ];
 
 const Navbar = () => {
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const dropdownTimeout = useRef<ReturnType<typeof setTimeout>>();
+
+  const handleDropdownEnter = (label: string) => {
+    clearTimeout(dropdownTimeout.current);
+    setOpenDropdown(label);
+  };
+
+  const handleDropdownLeave = () => {
+    dropdownTimeout.current = setTimeout(() => setOpenDropdown(null), 150);
+  };
+
+  useEffect(() => {
+    setMobileOpen(false);
+    setOpenDropdown(null);
+  }, [location.pathname]);
+
+  const isActive = (path: string) => location.pathname === path;
+  const isGroupActive = (items: { to: string }[]) => items.some((i) => location.pathname === i.to);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-border/30">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/40">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 font-heading font-bold text-xl">
-          <Smartphone className="w-6 h-6 text-primary" />
-          <span>MG İletişim</span>
+        {/* Logo */}
+        <Link to="/" className="flex items-center gap-2.5 group">
+          <div className="w-9 h-9 rounded-lg bg-primary/15 flex items-center justify-center group-hover:bg-primary/25 transition-colors">
+            <Smartphone className="w-5 h-5 text-primary" />
+          </div>
+          <span className="font-heading font-bold text-lg tracking-tight">MG İletişim</span>
         </Link>
 
-        {/* Desktop */}
-        <div className="hidden md:flex items-center gap-6">
-          {navLinks.map((link) => (
+        {/* Desktop Nav */}
+        <div className="hidden lg:flex items-center gap-1">
+          {mainLinks.slice(0, 1).map((link) => (
             <Link
               key={link.to}
               to={link.to}
-              className={`text-sm font-medium transition-colors hover:text-primary ${
-                location.pathname === link.to ? "text-primary" : "text-muted-foreground"
+              className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-muted/50 hover:text-foreground ${
+                isActive(link.to) ? "text-primary bg-primary/5" : "text-muted-foreground"
               }`}
             >
               {link.label}
             </Link>
           ))}
-          <Button asChild size="sm" className="glow-pulse">
+
+          {dropdownGroups.map((group) => (
+            <div
+              key={group.label}
+              className="relative"
+              onMouseEnter={() => handleDropdownEnter(group.label)}
+              onMouseLeave={handleDropdownLeave}
+            >
+              <button
+                className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-muted/50 hover:text-foreground flex items-center gap-1 ${
+                  isGroupActive(group.items) ? "text-primary bg-primary/5" : "text-muted-foreground"
+                }`}
+              >
+                {group.label}
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform ${openDropdown === group.label ? "rotate-180" : ""}`} />
+              </button>
+
+              {openDropdown === group.label && (
+                <div className="absolute top-full left-0 pt-2 w-72">
+                  <div className="rounded-xl bg-card border border-border/50 shadow-xl shadow-black/20 p-2 space-y-1">
+                    {group.items.map((item) => (
+                      <Link
+                        key={item.to}
+                        to={item.to}
+                        className={`flex items-start gap-3 p-3 rounded-lg transition-colors hover:bg-muted/50 group/item ${
+                          isActive(item.to) ? "bg-primary/5" : ""
+                        }`}
+                      >
+                        <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover/item:bg-primary/20 transition-colors">
+                          <item.icon className="w-4 h-4 text-primary" />
+                        </div>
+                        <div>
+                          <div className={`text-sm font-medium ${isActive(item.to) ? "text-primary" : "text-foreground"}`}>
+                            {item.label}
+                          </div>
+                          <div className="text-xs text-muted-foreground mt-0.5">{item.desc}</div>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
+
+          {mainLinks.slice(1).map((link) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-muted/50 hover:text-foreground ${
+                isActive(link.to) ? "text-primary bg-primary/5" : "text-muted-foreground"
+              }`}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div className="hidden lg:flex items-center gap-3">
+          <Button asChild size="sm" variant="outline" className="text-sm">
+            <a href="https://wa.me/905001234567" target="_blank" rel="noopener noreferrer">
+              💬 WhatsApp
+            </a>
+          </Button>
+          <Button asChild size="sm" className="glow-pulse text-sm">
             <a href="tel:+905001234567">
-              <Phone className="w-4 h-4 mr-1" /> Hemen Ara
+              <Phone className="w-4 h-4 mr-1.5" /> Hemen Ara
             </a>
           </Button>
         </div>
 
         {/* Mobile toggle */}
-        <button className="md:hidden text-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
-          {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        <button
+          className="lg:hidden w-10 h-10 rounded-lg flex items-center justify-center hover:bg-muted/50 transition-colors"
+          onClick={() => setMobileOpen(!mobileOpen)}
+        >
+          {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden glass border-t border-border/30 px-4 pb-4 space-y-3">
-          {navLinks.map((link) => (
+        <div className="lg:hidden bg-card/95 backdrop-blur-xl border-t border-border/30 px-4 py-4 space-y-1 max-h-[80vh] overflow-y-auto">
+          {mainLinks.slice(0, 1).map((link) => (
             <Link
               key={link.to}
               to={link.to}
-              onClick={() => setMobileOpen(false)}
-              className={`block py-2 text-sm font-medium transition-colors hover:text-primary ${
-                location.pathname === link.to ? "text-primary" : "text-muted-foreground"
+              className={`block px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
+                isActive(link.to) ? "text-primary bg-primary/5" : "text-muted-foreground hover:bg-muted/30"
               }`}
             >
               {link.label}
             </Link>
           ))}
-          <Button asChild size="sm" className="w-full">
-            <a href="tel:+905001234567">
-              <Phone className="w-4 h-4 mr-1" /> Hemen Ara
-            </a>
-          </Button>
+
+          {dropdownGroups.map((group) => (
+            <div key={group.label}>
+              <div className="px-4 py-2 text-xs font-semibold text-muted-foreground/60 uppercase tracking-wider mt-2">
+                {group.label}
+              </div>
+              {group.items.map((item) => (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
+                    isActive(item.to) ? "text-primary bg-primary/5" : "text-muted-foreground hover:bg-muted/30"
+                  }`}
+                >
+                  <item.icon className="w-4 h-4 text-primary" />
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          ))}
+
+          {mainLinks.slice(1).map((link) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              className={`block px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
+                isActive(link.to) ? "text-primary bg-primary/5" : "text-muted-foreground hover:bg-muted/30"
+              }`}
+            >
+              {link.label}
+            </Link>
+          ))}
+
+          <div className="pt-3 border-t border-border/30 space-y-2">
+            <Button asChild size="sm" variant="outline" className="w-full">
+              <a href="https://wa.me/905001234567" target="_blank" rel="noopener noreferrer">
+                💬 WhatsApp
+              </a>
+            </Button>
+            <Button asChild size="sm" className="w-full">
+              <a href="tel:+905001234567">
+                <Phone className="w-4 h-4 mr-1.5" /> Hemen Ara
+              </a>
+            </Button>
+          </div>
         </div>
       )}
     </nav>
