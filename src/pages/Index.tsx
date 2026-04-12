@@ -155,7 +155,7 @@ const Index = () => (
               <div className="p-6 rounded-xl bg-card border border-border/50">
                 <div className="flex gap-1 mb-3">
                   {Array.from({ length: t.stars }).map((_, i) => (
-                    <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                    <Star key={i} className="w-4 h-4 text-accent fill-accent" />
                   ))}
                 </div>
                 <p className="text-sm text-muted-foreground mb-4">"{t.text}"</p>
