@@ -1,5 +1,7 @@
 import FadeInSection from "@/components/FadeInSection";
 import { Target, Eye, Wrench, ShoppingCart, Award, Clock, Users, ThumbsUp, CheckCircle, Smartphone } from "lucide-react";
+import storeImg from "@/assets/store-interior.jpg";
+import heroRepairImg from "@/assets/hero-repair.jpg";
 
 const brands = ["Apple", "Samsung", "Xiaomi", "Huawei", "Oppo", "Realme", "OnePlus", "Nothing", "Google Pixel"];
 
@@ -34,6 +36,18 @@ const AboutPage = () => (
           MG İletişim olarak Sultanbeyli'de yıllardır hizmet veriyoruz. Müşteri memnuniyetini
           her zaman ön planda tutarak, kaliteli ve güvenilir telefon tamir ile aksesuar hizmeti sunuyoruz.
         </p>
+      </FadeInSection>
+
+      {/* Images */}
+      <FadeInSection>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16 max-w-4xl mx-auto">
+          <div className="rounded-2xl overflow-hidden">
+            <img src={heroRepairImg} alt="Telefon tamir atölyesi" className="w-full h-64 object-cover" loading="lazy" width={1920} height={1080} />
+          </div>
+          <div className="rounded-2xl overflow-hidden">
+            <img src={storeImg} alt="MG İletişim mağaza" className="w-full h-64 object-cover" loading="lazy" width={1280} height={720} />
+          </div>
+        </div>
       </FadeInSection>
 
       {/* Story */}

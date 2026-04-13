@@ -3,6 +3,8 @@ import FadeInSection from "@/components/FadeInSection";
 import {
   Smartphone, Battery, Code, Cpu, Droplets, Plug, Camera, Volume2,
 } from "lucide-react";
+import motherboardImg from "@/assets/motherboard-repair.jpg";
+import screenRepairImg from "@/assets/screen-repair.jpg";
 
 const services = [
   {
@@ -73,6 +75,18 @@ const ServicesPage = () => (
         <p className="text-center text-muted-foreground max-w-xl mx-auto mb-16">
           Profesyonel ekibimizle tüm telefon tamir ve bakım ihtiyaçlarınız için yanınızdayız.
         </p>
+      </FadeInSection>
+
+      {/* Featured images */}
+      <FadeInSection>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          <div className="rounded-2xl overflow-hidden">
+            <img src={screenRepairImg} alt="Ekran tamiri" className="w-full h-64 object-cover" loading="lazy" width={800} height={600} />
+          </div>
+          <div className="rounded-2xl overflow-hidden">
+            <img src={motherboardImg} alt="Anakart tamiri mikro lehimleme" className="w-full h-64 object-cover" loading="lazy" width={800} height={600} />
+          </div>
+        </div>
       </FadeInSection>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
