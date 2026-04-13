@@ -3,6 +3,8 @@ import FadeInSection from "@/components/FadeInSection";
 import {
   ShoppingBag, Plug, Headphones, Layers, BatteryCharging, Bluetooth,
 } from "lucide-react";
+import accessoriesImg from "@/assets/accessories.jpg";
+import storeImg from "@/assets/store-interior.jpg";
 
 const categories = [
   { icon: ShoppingBag, title: "Telefon Kılıfları", desc: "iPhone, Samsung, Xiaomi ve daha fazlası için şık ve dayanıklı kılıflar. Silikon, şeffaf, deri ve zırh modelleri." },
@@ -23,6 +25,18 @@ const ProductsPage = () => (
         <p className="text-center text-muted-foreground max-w-xl mx-auto mb-16">
           Telefonunuz için ihtiyacınız olan tüm aksesuarlar mağazamızda.
         </p>
+      </FadeInSection>
+
+      {/* Product showcase images */}
+      <FadeInSection>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          <div className="rounded-2xl overflow-hidden">
+            <img src={accessoriesImg} alt="Telefon aksesuarları" className="w-full h-64 object-cover" loading="lazy" width={800} height={600} />
+          </div>
+          <div className="rounded-2xl overflow-hidden">
+            <img src={storeImg} alt="MG İletişim mağaza" className="w-full h-64 object-cover" loading="lazy" width={1280} height={720} />
+          </div>
+        </div>
       </FadeInSection>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">

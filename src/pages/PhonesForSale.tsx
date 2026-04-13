@@ -2,6 +2,7 @@ import FadeInSection from "@/components/FadeInSection";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Smartphone, Battery, Shield, Star, MessageCircle } from "lucide-react";
+import phonesImg from "@/assets/phones-for-sale.jpg";
 
 const phones = [
   {
@@ -112,6 +113,13 @@ const PhonesForSalePage = () => (
           <span className="px-4 py-2 rounded-full bg-muted border border-border text-muted-foreground text-sm font-medium">
             🔋 Batarya Sağlığı Belirtilir
           </span>
+        </div>
+      </FadeInSection>
+
+      {/* Showcase image */}
+      <FadeInSection>
+        <div className="rounded-2xl overflow-hidden mb-12 max-w-3xl mx-auto">
+          <img src={phonesImg} alt="Satılık ikinci el telefonlar" className="w-full h-64 md:h-80 object-cover" loading="lazy" width={800} height={600} />
         </div>
       </FadeInSection>
 

@@ -8,6 +8,11 @@ import {
   Star, MapPin, Phone, Clock,
 } from "lucide-react";
 
+import heroImg from "@/assets/hero-repair.jpg";
+import screenRepairImg from "@/assets/screen-repair.jpg";
+import accessoriesImg from "@/assets/accessories.jpg";
+import storeImg from "@/assets/store-interior.jpg";
+
 const whyUs = [
   { icon: Users, title: "Uzman Ekip", desc: "Deneyimli teknisyenler ile profesyonel hizmet" },
   { icon: Zap, title: "Hızlı Servis", desc: "Çoğu tamir aynı gün teslim edilir" },
@@ -40,8 +45,15 @@ const testimonials = [
 const Index = () => (
   <>
     {/* Hero */}
-    <section className="relative min-h-[90vh] flex items-center circuit-pattern overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
+    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+      <img
+        src={heroImg}
+        alt="MG İletişim telefon tamir atölyesi"
+        className="absolute inset-0 w-full h-full object-cover"
+        width={1920}
+        height={1080}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/85 to-background" />
       <div className="container mx-auto px-4 relative z-10 text-center">
         <FadeInSection>
           <div className="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
@@ -87,7 +99,7 @@ const Index = () => (
       </div>
     </section>
 
-    {/* Services */}
+    {/* Services with image */}
     <section className="py-20 bg-card/30">
       <div className="container mx-auto px-4">
         <FadeInSection>
@@ -95,6 +107,21 @@ const Index = () => (
             Hizmetlerimiz 🛠️</h2>
           <p className="text-center text-muted-foreground mb-12 max-w-lg mx-auto">Profesyonel ekipman, deneyimli ekip</p>
         </FadeInSection>
+
+        {/* Featured image */}
+        <FadeInSection>
+          <div className="rounded-2xl overflow-hidden mb-12 max-w-3xl mx-auto">
+            <img
+              src={screenRepairImg}
+              alt="Ekran değişimi tamir işlemi"
+              className="w-full h-64 md:h-80 object-cover"
+              loading="lazy"
+              width={800}
+              height={600}
+            />
+          </div>
+        </FadeInSection>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s) => (
             <FadeInSection key={s.title}>
@@ -114,7 +141,7 @@ const Index = () => (
       </div>
     </section>
 
-    {/* Products */}
+    {/* Products with image */}
     <section className="py-20">
       <div className="container mx-auto px-4">
         <FadeInSection>
@@ -122,6 +149,21 @@ const Index = () => (
             Ürünlerimiz 🎧</h2>
           <p className="text-center text-muted-foreground mb-12 max-w-lg mx-auto">Orijinal ve uyumlu aksesuarlar</p>
         </FadeInSection>
+
+        {/* Accessories image */}
+        <FadeInSection>
+          <div className="rounded-2xl overflow-hidden mb-12 max-w-3xl mx-auto">
+            <img
+              src={accessoriesImg}
+              alt="Telefon aksesuarları - kılıf, kulaklık, şarj cihazı"
+              className="w-full h-64 md:h-80 object-cover"
+              loading="lazy"
+              width={800}
+              height={600}
+            />
+          </div>
+        </FadeInSection>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {products.map((p) => (
             <FadeInSection key={p.title}>
@@ -167,9 +209,23 @@ const Index = () => (
       </div>
     </section>
 
-    {/* Contact Strip */}
+    {/* Store & Contact Strip */}
     <section className="py-20">
       <div className="container mx-auto px-4">
+        {/* Store image */}
+        <FadeInSection>
+          <div className="rounded-2xl overflow-hidden mb-12">
+            <img
+              src={storeImg}
+              alt="MG İletişim mağaza içi görünümü"
+              className="w-full h-64 md:h-96 object-cover"
+              loading="lazy"
+              width={1280}
+              height={720}
+            />
+          </div>
+        </FadeInSection>
+
         <FadeInSection>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             <div className="flex items-center gap-4 p-6 rounded-xl bg-card border border-border/50">

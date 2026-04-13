@@ -1,5 +1,7 @@
 import FadeInSection from "@/components/FadeInSection";
 import { Smartphone, Monitor, Tablet, Watch, Gamepad2, Headphones } from "lucide-react";
+import screenRepairImg from "@/assets/screen-repair.jpg";
+import motherboardImg from "@/assets/motherboard-repair.jpg";
 
 const devices = [
   {
@@ -67,6 +69,18 @@ const RepairedDevicesPage = () => (
         <p className="text-center text-muted-foreground max-w-xl mx-auto mb-16">
           Tüm marka ve modellerde profesyonel tamir hizmeti sunuyoruz
         </p>
+      </FadeInSection>
+
+      {/* Showcase images */}
+      <FadeInSection>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          <div className="rounded-2xl overflow-hidden">
+            <img src={screenRepairImg} alt="Ekran değişimi" className="w-full h-56 object-cover" loading="lazy" width={800} height={600} />
+          </div>
+          <div className="rounded-2xl overflow-hidden">
+            <img src={motherboardImg} alt="Anakart tamiri" className="w-full h-56 object-cover" loading="lazy" width={800} height={600} />
+          </div>
+        </div>
       </FadeInSection>
 
       {/* Repair types */}
