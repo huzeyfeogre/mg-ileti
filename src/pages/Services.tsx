@@ -5,6 +5,8 @@ import {
 } from "lucide-react";
 import motherboardImg from "@/assets/motherboard-repair.jpg";
 import screenRepairImg from "@/assets/screen-repair.jpg";
+import batteryRepairImg from "@/assets/battery-repair.jpg";
+import waterDamageImg from "@/assets/water-damage-repair.jpg";
 
 const services = [
   {
@@ -13,6 +15,7 @@ const services = [
     desc: "iPhone, Samsung, Xiaomi, Huawei ve daha fazlası için orijinal ve uyumlu ekran değişimi.",
     bullets: ["Orijinal ve A kalite ekran seçenekleri", "Dokunmatik hassasiyet testi", "Garanti kapsamında hizmet", "Tüm marka ve modeller"],
     time: "Genellikle 1–2 saat içinde tamamlanır",
+    image: screenRepairImg,
   },
   {
     icon: Battery,
@@ -20,6 +23,7 @@ const services = [
     desc: "Telefonunuzun batarya ömrü kısaldıysa, orijinal kapasiteli batarya ile değişim yapıyoruz.",
     bullets: ["Orijinal kapasiteli bataryalar", "Batarya sağlık testi", "Hızlı değişim işlemi", "6 ay garanti"],
     time: "Genellikle 30–60 dakika içinde tamamlanır",
+    image: batteryRepairImg,
   },
   {
     icon: Code,
@@ -34,6 +38,7 @@ const services = [
     desc: "Mikroişlemci seviyesinde onarım. Açılmayan, donma yapan cihazlar için çözüm.",
     bullets: ["Mikro lehimleme işlemleri", "Entegre değişimi", "Kısa devre tespiti ve onarımı", "Açılmayan cihaz kurtarma"],
     time: "Genellikle 1–3 iş günü içinde tamamlanır",
+    image: motherboardImg,
   },
   {
     icon: Droplets,
@@ -41,6 +46,7 @@ const services = [
     desc: "Sıvı teması sonrası cihazınız için acil müdahale ve onarım.",
     bullets: ["Ultrasonik temizleme", "Korozyon giderme", "Hasar tespiti ve raporlama", "Acil müdahale servisi"],
     time: "Genellikle 1–2 iş günü içinde tamamlanır",
+    image: waterDamageImg,
   },
   {
     icon: Plug,
@@ -77,42 +83,42 @@ const ServicesPage = () => (
         </p>
       </FadeInSection>
 
-      {/* Featured images */}
-      <FadeInSection>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-          <div className="rounded-2xl overflow-hidden">
-            <img src={screenRepairImg} alt="Ekran tamiri" className="w-full h-64 object-cover" loading="lazy" width={800} height={600} />
-          </div>
-          <div className="rounded-2xl overflow-hidden">
-            <img src={motherboardImg} alt="Anakart tamiri mikro lehimleme" className="w-full h-64 object-cover" loading="lazy" width={800} height={600} />
-          </div>
-        </div>
-      </FadeInSection>
-
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {services.map((s) => (
           <FadeInSection key={s.title}>
-            <div className="p-8 rounded-xl bg-card border border-border/50 hover-lift h-full flex flex-col">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <s.icon className="w-6 h-6 text-primary" />
+            <div className="rounded-xl bg-card border border-border/50 hover-lift h-full flex flex-col overflow-hidden">
+              {s.image && (
+                <img
+                  src={s.image}
+                  alt={s.title}
+                  className="w-full h-48 object-cover"
+                  loading="lazy"
+                  width={800}
+                  height={600}
+                />
+              )}
+              <div className="p-8 flex flex-col flex-1">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <s.icon className="w-6 h-6 text-primary" />
+                  </div>
+                  <h2 className="font-heading font-bold text-xl">{s.title}</h2>
                 </div>
-                <h2 className="font-heading font-bold text-xl">{s.title}</h2>
+                <p className="text-sm text-muted-foreground mb-4">{s.desc}</p>
+                <ul className="space-y-2 mb-4 flex-1">
+                  {s.bullets.map((b) => (
+                    <li key={b} className="text-sm text-muted-foreground flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span> {b}
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-xs text-muted-foreground mb-4 italic">⏱ {s.time}</p>
+                <Button asChild className="w-full">
+                  <a href="https://wa.me/905001234567" target="_blank" rel="noopener noreferrer">
+                    Fiyat Al
+                  </a>
+                </Button>
               </div>
-              <p className="text-sm text-muted-foreground mb-4">{s.desc}</p>
-              <ul className="space-y-2 mb-4 flex-1">
-                {s.bullets.map((b) => (
-                  <li key={b} className="text-sm text-muted-foreground flex items-start gap-2">
-                    <span className="text-primary mt-1">•</span> {b}
-                  </li>
-                ))}
-              </ul>
-              <p className="text-xs text-muted-foreground mb-4 italic">⏱ {s.time}</p>
-              <Button asChild className="w-full">
-                <a href="https://wa.me/905001234567" target="_blank" rel="noopener noreferrer">
-                  Fiyat Al
-                </a>
-              </Button>
             </div>
           </FadeInSection>
         ))}
