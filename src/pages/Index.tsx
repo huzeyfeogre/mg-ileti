@@ -8,10 +8,14 @@ import {
   Star, MapPin, Phone, Clock,
 } from "lucide-react";
 
-import heroImg from "@/assets/hero-repair.jpg";
-import screenRepairImg from "@/assets/screen-repair.jpg";
-import accessoriesImg from "@/assets/accessories.jpg";
-import storeImg from "@/assets/store-interior.jpg";
+const IMAGES = {
+  hero: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1920&q=80&auto=format&fit=crop",
+  screenRepair: "https://images.unsplash.com/photo-1597673030062-0a0f1a801a31?w=800&q=80&auto=format&fit=crop",
+  accessories: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=80&auto=format&fit=crop",
+  store: "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=1280&q=80&auto=format&fit=crop",
+  repair2: "https://images.unsplash.com/photo-1530893609608-32a9af3aa95c?w=800&q=80&auto=format&fit=crop",
+  tools: "https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=800&q=80&auto=format&fit=crop",
+};
 
 const whyUs = [
   { icon: Users, title: "Uzman Ekip", desc: "Deneyimli teknisyenler ile profesyonel hizmet" },
@@ -47,7 +51,7 @@ const Index = () => (
     {/* Hero */}
     <section className="relative min-h-[90vh] flex items-center overflow-hidden">
       <img
-        src={heroImg}
+        src={IMAGES.hero}
         alt="MG İletişim telefon tamir atölyesi"
         className="absolute inset-0 w-full h-full object-cover"
         width={1920}
@@ -99,7 +103,7 @@ const Index = () => (
       </div>
     </section>
 
-    {/* Services with image */}
+    {/* Services with images */}
     <section className="py-20 bg-card/30">
       <div className="container mx-auto px-4">
         <FadeInSection>
@@ -108,17 +112,15 @@ const Index = () => (
           <p className="text-center text-muted-foreground mb-12 max-w-lg mx-auto">Profesyonel ekipman, deneyimli ekip</p>
         </FadeInSection>
 
-        {/* Featured image */}
+        {/* Two featured images */}
         <FadeInSection>
-          <div className="rounded-2xl overflow-hidden mb-12 max-w-3xl mx-auto">
-            <img
-              src={screenRepairImg}
-              alt="Ekran değişimi tamir işlemi"
-              className="w-full h-64 md:h-80 object-cover"
-              loading="lazy"
-              width={800}
-              height={600}
-            />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            <div className="rounded-2xl overflow-hidden">
+              <img src={IMAGES.screenRepair} alt="Ekran değişimi" className="w-full h-64 md:h-72 object-cover" loading="lazy" />
+            </div>
+            <div className="rounded-2xl overflow-hidden">
+              <img src={IMAGES.repair2} alt="Telefon tamir işlemi" className="w-full h-64 md:h-72 object-cover" loading="lazy" />
+            </div>
           </div>
         </FadeInSection>
 
@@ -141,7 +143,7 @@ const Index = () => (
       </div>
     </section>
 
-    {/* Products with image */}
+    {/* Products with images */}
     <section className="py-20">
       <div className="container mx-auto px-4">
         <FadeInSection>
@@ -150,17 +152,18 @@ const Index = () => (
           <p className="text-center text-muted-foreground mb-12 max-w-lg mx-auto">Orijinal ve uyumlu aksesuarlar</p>
         </FadeInSection>
 
-        {/* Accessories image */}
+        {/* Accessories images */}
         <FadeInSection>
-          <div className="rounded-2xl overflow-hidden mb-12 max-w-3xl mx-auto">
-            <img
-              src={accessoriesImg}
-              alt="Telefon aksesuarları - kılıf, kulaklık, şarj cihazı"
-              className="w-full h-64 md:h-80 object-cover"
-              loading="lazy"
-              width={800}
-              height={600}
-            />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div className="rounded-2xl overflow-hidden">
+              <img src={IMAGES.accessories} alt="Kulaklık ve aksesuarlar" className="w-full h-56 object-cover" loading="lazy" />
+            </div>
+            <div className="rounded-2xl overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1601593346740-925612772716?w=800&q=80&auto=format&fit=crop" alt="Telefon kılıfları" className="w-full h-56 object-cover" loading="lazy" />
+            </div>
+            <div className="rounded-2xl overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=800&q=80&auto=format&fit=crop" alt="Şarj cihazları" className="w-full h-56 object-cover" loading="lazy" />
+            </div>
           </div>
         </FadeInSection>
 
@@ -212,17 +215,15 @@ const Index = () => (
     {/* Store & Contact Strip */}
     <section className="py-20">
       <div className="container mx-auto px-4">
-        {/* Store image */}
+        {/* Store images */}
         <FadeInSection>
-          <div className="rounded-2xl overflow-hidden mb-12">
-            <img
-              src={storeImg}
-              alt="MG İletişim mağaza içi görünümü"
-              className="w-full h-64 md:h-96 object-cover"
-              loading="lazy"
-              width={1280}
-              height={720}
-            />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            <div className="rounded-2xl overflow-hidden">
+              <img src={IMAGES.store} alt="MG İletişim mağaza içi" className="w-full h-64 md:h-80 object-cover" loading="lazy" />
+            </div>
+            <div className="rounded-2xl overflow-hidden">
+              <img src={IMAGES.tools} alt="Tamir aletleri ve ekipmanlar" className="w-full h-64 md:h-80 object-cover" loading="lazy" />
+            </div>
           </div>
         </FadeInSection>
 

@@ -2,89 +2,21 @@ import FadeInSection from "@/components/FadeInSection";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Smartphone, Battery, Shield, Star, MessageCircle } from "lucide-react";
-import phonesImg from "@/assets/phones-for-sale.jpg";
+
+const IMAGES = {
+  phones: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&q=80&auto=format&fit=crop",
+  showcase: "https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=800&q=80&auto=format&fit=crop",
+};
 
 const phones = [
-  {
-    name: "iPhone 13",
-    storage: "128 GB",
-    color: "Gece Yarısı",
-    condition: "Mükemmel",
-    battery: "%92",
-    price: "18.500 ₺",
-    warranty: true,
-    featured: true,
-  },
-  {
-    name: "Samsung Galaxy S23",
-    storage: "256 GB",
-    color: "Phantom Black",
-    condition: "Çok İyi",
-    battery: "%95",
-    price: "21.000 ₺",
-    warranty: true,
-    featured: false,
-  },
-  {
-    name: "iPhone 12",
-    storage: "64 GB",
-    color: "Beyaz",
-    condition: "İyi",
-    battery: "%87",
-    price: "13.500 ₺",
-    warranty: true,
-    featured: false,
-  },
-  {
-    name: "Xiaomi 13T Pro",
-    storage: "256 GB",
-    color: "Siyah",
-    condition: "Mükemmel",
-    battery: "%98",
-    price: "15.000 ₺",
-    warranty: true,
-    featured: true,
-  },
-  {
-    name: "Samsung Galaxy A54",
-    storage: "128 GB",
-    color: "Lime",
-    condition: "Çok İyi",
-    battery: "%94",
-    price: "10.500 ₺",
-    warranty: true,
-    featured: false,
-  },
-  {
-    name: "iPhone 14 Pro",
-    storage: "256 GB",
-    color: "Uzay Siyahı",
-    condition: "Mükemmel",
-    battery: "%96",
-    price: "32.000 ₺",
-    warranty: true,
-    featured: true,
-  },
-  {
-    name: "Oppo Reno 10",
-    storage: "256 GB",
-    color: "Gümüş",
-    condition: "İyi",
-    battery: "%90",
-    price: "9.000 ₺",
-    warranty: true,
-    featured: false,
-  },
-  {
-    name: "Samsung Galaxy S22 Ultra",
-    storage: "256 GB",
-    color: "Bordo",
-    condition: "Çok İyi",
-    battery: "%89",
-    price: "22.500 ₺",
-    warranty: true,
-    featured: false,
-  },
+  { name: "iPhone 13", storage: "128 GB", color: "Gece Yarısı", condition: "Mükemmel", battery: "%92", price: "18.500 ₺", warranty: true, featured: true },
+  { name: "Samsung Galaxy S23", storage: "256 GB", color: "Phantom Black", condition: "Çok İyi", battery: "%95", price: "21.000 ₺", warranty: true, featured: false },
+  { name: "iPhone 12", storage: "64 GB", color: "Beyaz", condition: "İyi", battery: "%87", price: "13.500 ₺", warranty: true, featured: false },
+  { name: "Xiaomi 13T Pro", storage: "256 GB", color: "Siyah", condition: "Mükemmel", battery: "%98", price: "15.000 ₺", warranty: true, featured: true },
+  { name: "Samsung Galaxy A54", storage: "128 GB", color: "Lime", condition: "Çok İyi", battery: "%94", price: "10.500 ₺", warranty: true, featured: false },
+  { name: "iPhone 14 Pro", storage: "256 GB", color: "Uzay Siyahı", condition: "Mükemmel", battery: "%96", price: "32.000 ₺", warranty: true, featured: true },
+  { name: "Oppo Reno 10", storage: "256 GB", color: "Gümüş", condition: "İyi", battery: "%90", price: "9.000 ₺", warranty: true, featured: false },
+  { name: "Samsung Galaxy S22 Ultra", storage: "256 GB", color: "Bordo", condition: "Çok İyi", battery: "%89", price: "22.500 ₺", warranty: true, featured: false },
 ];
 
 const conditionColor = (c: string) => {
@@ -116,10 +48,15 @@ const PhonesForSalePage = () => (
         </div>
       </FadeInSection>
 
-      {/* Showcase image */}
+      {/* Showcase images */}
       <FadeInSection>
-        <div className="rounded-2xl overflow-hidden mb-12 max-w-3xl mx-auto">
-          <img src={phonesImg} alt="Satılık ikinci el telefonlar" className="w-full h-64 md:h-80 object-cover" loading="lazy" width={800} height={600} />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 max-w-4xl mx-auto">
+          <div className="rounded-2xl overflow-hidden">
+            <img src={IMAGES.phones} alt="Satılık telefonlar" className="w-full h-64 object-cover" loading="lazy" />
+          </div>
+          <div className="rounded-2xl overflow-hidden">
+            <img src={IMAGES.showcase} alt="İkinci el telefon vitrini" className="w-full h-64 object-cover" loading="lazy" />
+          </div>
         </div>
       </FadeInSection>
 
@@ -134,7 +71,6 @@ const PhonesForSalePage = () => (
                   </Badge>
                 </div>
               )}
-              
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
                   <Smartphone className="w-6 h-6 text-primary" />
@@ -144,7 +80,6 @@ const PhonesForSalePage = () => (
                   <p className="text-xs text-muted-foreground">{phone.storage} • {phone.color}</p>
                 </div>
               </div>
-
               <div className="flex flex-wrap gap-2 mb-4">
                 <span className={`px-2.5 py-1 rounded-full text-xs font-medium border ${conditionColor(phone.condition)}`}>
                   {phone.condition}
@@ -158,7 +93,6 @@ const PhonesForSalePage = () => (
                   </span>
                 )}
               </div>
-
               <div className="mt-auto pt-4 border-t border-border/30 flex items-center justify-between">
                 <span className="font-heading font-extrabold text-xl text-primary">{phone.price}</span>
                 <Button size="sm" variant="outline" asChild>

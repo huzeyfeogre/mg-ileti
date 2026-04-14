@@ -1,7 +1,12 @@
 import FadeInSection from "@/components/FadeInSection";
 import { Target, Eye, Wrench, ShoppingCart, Award, Clock, Users, ThumbsUp, CheckCircle, Smartphone } from "lucide-react";
-import storeImg from "@/assets/store-interior.jpg";
-import heroRepairImg from "@/assets/hero-repair.jpg";
+
+const IMAGES = {
+  store: "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=1280&q=80&auto=format&fit=crop",
+  workshop: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1920&q=80&auto=format&fit=crop",
+  repair: "https://images.unsplash.com/photo-1597673030062-0a0f1a801a31?w=800&q=80&auto=format&fit=crop",
+  tools: "https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=800&q=80&auto=format&fit=crop",
+};
 
 const brands = ["Apple", "Samsung", "Xiaomi", "Huawei", "Oppo", "Realme", "OnePlus", "Nothing", "Google Pixel"];
 
@@ -40,36 +45,44 @@ const AboutPage = () => (
 
       {/* Images */}
       <FadeInSection>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16 max-w-4xl mx-auto">
-          <div className="rounded-2xl overflow-hidden">
-            <img src={heroRepairImg} alt="Telefon tamir atölyesi" className="w-full h-64 object-cover" loading="lazy" width={1920} height={1080} />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 max-w-5xl mx-auto">
+          <div className="rounded-2xl overflow-hidden md:col-span-2">
+            <img src={IMAGES.workshop} alt="Telefon tamir atölyesi" className="w-full h-72 object-cover" loading="lazy" />
           </div>
           <div className="rounded-2xl overflow-hidden">
-            <img src={storeImg} alt="MG İletişim mağaza" className="w-full h-64 object-cover" loading="lazy" width={1280} height={720} />
+            <img src={IMAGES.store} alt="MG İletişim mağaza" className="w-full h-72 object-cover" loading="lazy" />
           </div>
         </div>
       </FadeInSection>
 
-      {/* Story */}
+      {/* Story with side image */}
       <FadeInSection>
-        <div className="max-w-3xl mx-auto mb-20 p-8 rounded-xl bg-card border border-border/50">
-          <h2 className="font-heading font-bold text-2xl mb-4">Hikayemiz</h2>
-          <div className="space-y-4 text-muted-foreground">
-            <p>
-              MG İletişim, Sultanbeyli'de küçük bir tamir atölyesi olarak yola çıktı. İlk günden itibaren
-              amacımız basitti: insanların teknolojik cihazlarını hızlı, uygun fiyatlı ve güvenilir bir
-              şekilde tamir etmek.
-            </p>
-            <p>
-              Yıllar içinde edindiğimiz tecrübe ve müşterilerimizin güveniyle büyüdük. Bugün Sultanbeyli'nin
-              en bilinen ve en çok tercih edilen telefon servis merkezlerinden biri olmanın gururunu yaşıyoruz.
-              Binlerce başarılı tamir işlemi ve mutlu müşteri ile yolumuza devam ediyoruz.
-            </p>
-            <p>
-              Sadece tamir değil, aynı zamanda geniş aksesuar yelpazemizle müşterilerimizin tüm telefon
-              ihtiyaçlarını tek bir noktadan karşılıyoruz. Kılıftan kulaklığa, şarj cihazından ekran
-              koruyucuya kadar her şey mağazamızda.
-            </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20 max-w-5xl mx-auto">
+          <div className="p-8 rounded-xl bg-card border border-border/50">
+            <h2 className="font-heading font-bold text-2xl mb-4">Hikayemiz</h2>
+            <div className="space-y-4 text-muted-foreground">
+              <p>
+                MG İletişim, Sultanbeyli'de küçük bir tamir atölyesi olarak yola çıktı. İlk günden itibaren
+                amacımız basitti: insanların teknolojik cihazlarını hızlı, uygun fiyatlı ve güvenilir bir
+                şekilde tamir etmek.
+              </p>
+              <p>
+                Yıllar içinde edindiğimiz tecrübe ve müşterilerimizin güveniyle büyüdük. Bugün Sultanbeyli'nin
+                en bilinen ve en çok tercih edilen telefon servis merkezlerinden biri olmanın gururunu yaşıyoruz.
+              </p>
+              <p>
+                Sadece tamir değil, aynı zamanda geniş aksesuar yelpazemizle müşterilerimizin tüm telefon
+                ihtiyaçlarını tek bir noktadan karşılıyoruz.
+              </p>
+            </div>
+          </div>
+          <div className="grid grid-rows-2 gap-4">
+            <div className="rounded-xl overflow-hidden">
+              <img src={IMAGES.repair} alt="Ekran tamiri" className="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div className="rounded-xl overflow-hidden">
+              <img src={IMAGES.tools} alt="Tamir aletleri" className="w-full h-full object-cover" loading="lazy" />
+            </div>
           </div>
         </div>
       </FadeInSection>
@@ -95,8 +108,7 @@ const AboutPage = () => (
             <h2 className="font-heading font-bold text-2xl mb-3">Misyonumuz</h2>
             <p className="text-muted-foreground">
               Sultanbeyli halkına en hızlı, en uygun fiyatlı ve en kaliteli telefon tamir hizmetini
-              sunarak teknoloji ile aralarındaki bağı güçlendirmek. Her müşterimize aile gibi
-              yaklaşarak, güven ve memnuniyeti en üst seviyede tutmak.
+              sunarak teknoloji ile aralarındaki bağı güçlendirmek.
             </p>
           </div>
         </FadeInSection>
@@ -106,8 +118,7 @@ const AboutPage = () => (
             <h2 className="font-heading font-bold text-2xl mb-3">Vizyonumuz</h2>
             <p className="text-muted-foreground">
               İstanbul'un en güvenilir ve tercih edilen telefon servis merkezi olmak. Teknolojiyi
-              herkes için erişilebilir kılmak ve sürekli kendimizi geliştirerek sektörde öncü olmaya
-              devam etmek.
+              herkes için erişilebilir kılmak ve sektörde öncü olmaya devam etmek.
             </p>
           </div>
         </FadeInSection>

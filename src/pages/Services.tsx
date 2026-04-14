@@ -3,10 +3,17 @@ import FadeInSection from "@/components/FadeInSection";
 import {
   Smartphone, Battery, Code, Cpu, Droplets, Plug, Camera, Volume2,
 } from "lucide-react";
-import motherboardImg from "@/assets/motherboard-repair.jpg";
-import screenRepairImg from "@/assets/screen-repair.jpg";
-import batteryRepairImg from "@/assets/battery-repair.jpg";
-import waterDamageImg from "@/assets/water-damage-repair.jpg";
+
+const IMAGES = {
+  screenRepair: "https://images.unsplash.com/photo-1597673030062-0a0f1a801a31?w=800&q=80&auto=format&fit=crop",
+  batteryRepair: "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=800&q=80&auto=format&fit=crop",
+  motherboard: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80&auto=format&fit=crop",
+  waterDamage: "https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=800&q=80&auto=format&fit=crop",
+  repairTools: "https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=800&q=80&auto=format&fit=crop",
+  repairWorkbench: "https://images.unsplash.com/photo-1530893609608-32a9af3aa95c?w=800&q=80&auto=format&fit=crop",
+  soldering: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=80&auto=format&fit=crop",
+  charging: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=800&q=80&auto=format&fit=crop",
+};
 
 const services = [
   {
@@ -15,7 +22,7 @@ const services = [
     desc: "iPhone, Samsung, Xiaomi, Huawei ve daha fazlası için orijinal ve uyumlu ekran değişimi.",
     bullets: ["Orijinal ve A kalite ekran seçenekleri", "Dokunmatik hassasiyet testi", "Garanti kapsamında hizmet", "Tüm marka ve modeller"],
     time: "Genellikle 1–2 saat içinde tamamlanır",
-    image: screenRepairImg,
+    image: IMAGES.screenRepair,
   },
   {
     icon: Battery,
@@ -23,7 +30,7 @@ const services = [
     desc: "Telefonunuzun batarya ömrü kısaldıysa, orijinal kapasiteli batarya ile değişim yapıyoruz.",
     bullets: ["Orijinal kapasiteli bataryalar", "Batarya sağlık testi", "Hızlı değişim işlemi", "6 ay garanti"],
     time: "Genellikle 30–60 dakika içinde tamamlanır",
-    image: batteryRepairImg,
+    image: IMAGES.batteryRepair,
   },
   {
     icon: Code,
@@ -31,6 +38,7 @@ const services = [
     desc: "Format atma, güncelleme sorunları, virüs temizleme ve yazılım optimizasyonu.",
     bullets: ["Fabrika ayarlarına sıfırlama", "İşletim sistemi güncellemesi", "Virüs ve zararlı yazılım temizleme", "Veri yedekleme ve kurtarma"],
     time: "Genellikle 1–3 saat içinde tamamlanır",
+    image: IMAGES.repairWorkbench,
   },
   {
     icon: Cpu,
@@ -38,7 +46,7 @@ const services = [
     desc: "Mikroişlemci seviyesinde onarım. Açılmayan, donma yapan cihazlar için çözüm.",
     bullets: ["Mikro lehimleme işlemleri", "Entegre değişimi", "Kısa devre tespiti ve onarımı", "Açılmayan cihaz kurtarma"],
     time: "Genellikle 1–3 iş günü içinde tamamlanır",
-    image: motherboardImg,
+    image: IMAGES.motherboard,
   },
   {
     icon: Droplets,
@@ -46,7 +54,7 @@ const services = [
     desc: "Sıvı teması sonrası cihazınız için acil müdahale ve onarım.",
     bullets: ["Ultrasonik temizleme", "Korozyon giderme", "Hasar tespiti ve raporlama", "Acil müdahale servisi"],
     time: "Genellikle 1–2 iş günü içinde tamamlanır",
-    image: waterDamageImg,
+    image: IMAGES.waterDamage,
   },
   {
     icon: Plug,
@@ -54,6 +62,7 @@ const services = [
     desc: "Şarj girişi arızası, gevşek soket veya şarj almama sorunları için onarım.",
     bullets: ["Şarj soketi değişimi", "Şarj IC tamiri", "Hızlı şarj uyumluluk testi", "Tüm marka ve modeller"],
     time: "Genellikle 1–2 saat içinde tamamlanır",
+    image: IMAGES.charging,
   },
   {
     icon: Camera,
@@ -61,6 +70,7 @@ const services = [
     desc: "Ön ve arka kamera modülü değişimi, odaklama sorunları giderme.",
     bullets: ["Ön ve arka kamera değişimi", "Odaklama ayarı", "Kamera camı değişimi", "Orijinal yedek parça"],
     time: "Genellikle 1–2 saat içinde tamamlanır",
+    image: IMAGES.repairTools,
   },
   {
     icon: Volume2,
@@ -68,6 +78,7 @@ const services = [
     desc: "Ses gelmiyor, mikrofon çalışmıyor veya ses kısık mı? Hemen çözelim.",
     bullets: ["Hoparlör değişimi", "Mikrofon değişimi", "Ses IC tamiri", "Ses testi ve kalibrasyon"],
     time: "Genellikle 1–2 saat içinde tamamlanır",
+    image: IMAGES.soldering,
   },
 ];
 
@@ -87,16 +98,12 @@ const ServicesPage = () => (
         {services.map((s) => (
           <FadeInSection key={s.title}>
             <div className="rounded-xl bg-card border border-border/50 hover-lift h-full flex flex-col overflow-hidden">
-              {s.image && (
-                <img
-                  src={s.image}
-                  alt={s.title}
-                  className="w-full h-48 object-cover"
-                  loading="lazy"
-                  width={800}
-                  height={600}
-                />
-              )}
+              <img
+                src={s.image}
+                alt={s.title}
+                className="w-full h-48 object-cover"
+                loading="lazy"
+              />
               <div className="p-8 flex flex-col flex-1">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
