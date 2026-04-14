@@ -3,18 +3,24 @@ import FadeInSection from "@/components/FadeInSection";
 import {
   ShoppingBag, Plug, Headphones, Layers, BatteryCharging, Bluetooth,
 } from "lucide-react";
-import accessoriesImg from "@/assets/accessories.jpg";
-import storeImg from "@/assets/store-interior.jpg";
-import phoneCasesImg from "@/assets/phone-cases.jpg";
-import chargersCablesImg from "@/assets/chargers-cables.jpg";
+
+const IMAGES = {
+  store: "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=1280&q=80&auto=format&fit=crop",
+  phoneCases: "https://images.unsplash.com/photo-1601593346740-925612772716?w=800&q=80&auto=format&fit=crop",
+  chargers: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=800&q=80&auto=format&fit=crop",
+  headphones: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=80&auto=format&fit=crop",
+  screenProtector: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&q=80&auto=format&fit=crop",
+  powerbank: "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=800&q=80&auto=format&fit=crop",
+  bluetooth: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=800&q=80&auto=format&fit=crop",
+};
 
 const categories = [
-  { icon: ShoppingBag, title: "Telefon Kılıfları", desc: "iPhone, Samsung, Xiaomi ve daha fazlası için şık ve dayanıklı kılıflar. Silikon, şeffaf, deri ve zırh modelleri.", image: phoneCasesImg },
-  { icon: Plug, title: "Şarj Cihazları & Kablolar", desc: "Hızlı şarj adaptörleri, USB-C, Lightning ve micro USB kablolar. Orijinal ve uyumlu seçenekler.", image: chargersCablesImg },
-  { icon: Headphones, title: "Kulaklıklar", desc: "Kablolu ve kablosuz Bluetooth kulaklıklar. Spor, müzik ve günlük kullanım için farklı modeller.", image: accessoriesImg },
-  { icon: Layers, title: "Ekran Koruyucu Camlar", desc: "Tam kaplama temperli cam ekran koruyucular. Tüm popüler modeller için stokta." },
-  { icon: BatteryCharging, title: "Powerbank", desc: "10.000 mAh'tan 30.000 mAh'a kadar taşınabilir şarj cihazları. Hızlı şarj destekli." },
-  { icon: Bluetooth, title: "Bluetooth Aksesuarlar", desc: "Bluetooth hoparlörler, araç kitleri, akıllı saat aksesuarları ve daha fazlası." },
+  { icon: ShoppingBag, title: "Telefon Kılıfları", desc: "iPhone, Samsung, Xiaomi ve daha fazlası için şık ve dayanıklı kılıflar. Silikon, şeffaf, deri ve zırh modelleri.", image: IMAGES.phoneCases },
+  { icon: Plug, title: "Şarj Cihazları & Kablolar", desc: "Hızlı şarj adaptörleri, USB-C, Lightning ve micro USB kablolar. Orijinal ve uyumlu seçenekler.", image: IMAGES.chargers },
+  { icon: Headphones, title: "Kulaklıklar", desc: "Kablolu ve kablosuz Bluetooth kulaklıklar. Spor, müzik ve günlük kullanım için farklı modeller.", image: IMAGES.headphones },
+  { icon: Layers, title: "Ekran Koruyucu Camlar", desc: "Tam kaplama temperli cam ekran koruyucular. Tüm popüler modeller için stokta.", image: IMAGES.screenProtector },
+  { icon: BatteryCharging, title: "Powerbank", desc: "10.000 mAh'tan 30.000 mAh'a kadar taşınabilir şarj cihazları. Hızlı şarj destekli.", image: IMAGES.powerbank },
+  { icon: Bluetooth, title: "Bluetooth Aksesuarlar", desc: "Bluetooth hoparlörler, araç kitleri, akıllı saat aksesuarları ve daha fazlası.", image: IMAGES.bluetooth },
 ];
 
 const ProductsPage = () => (
@@ -32,7 +38,7 @@ const ProductsPage = () => (
       {/* Hero banner */}
       <FadeInSection>
         <div className="rounded-2xl overflow-hidden mb-12">
-          <img src={storeImg} alt="MG İletişim mağaza" className="w-full h-72 md:h-96 object-cover" loading="lazy" width={1280} height={720} />
+          <img src={IMAGES.store} alt="MG İletişim mağaza" className="w-full h-72 md:h-96 object-cover" loading="lazy" />
         </div>
       </FadeInSection>
 
@@ -40,9 +46,7 @@ const ProductsPage = () => (
         {categories.map((c) => (
           <FadeInSection key={c.title}>
             <div className="rounded-xl bg-card border border-border/50 hover-lift text-center h-full flex flex-col overflow-hidden">
-              {c.image && (
-                <img src={c.image} alt={c.title} className="w-full h-44 object-cover" loading="lazy" width={800} height={600} />
-              )}
+              <img src={c.image} alt={c.title} className="w-full h-44 object-cover" loading="lazy" />
               <div className="p-8 flex flex-col flex-1">
                 <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-5">
                   <c.icon className="w-7 h-7 text-primary" />

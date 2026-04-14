@@ -6,6 +6,10 @@ import FadeInSection from "@/components/FadeInSection";
 import { MapPin, Phone, Clock, MessageCircle } from "lucide-react";
 import { toast } from "sonner";
 
+const IMAGES = {
+  store: "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=1280&q=80&auto=format&fit=crop",
+};
+
 const contactInfo = [
   { icon: MapPin, title: "Adres", value: "Sultanbeyli, İstanbul" },
   { icon: Phone, title: "Telefon", value: "+90 500 123 45 67" },
@@ -29,9 +33,16 @@ const ContactPage = () => {
           <h1 className="font-heading text-4xl md:text-5xl font-extrabold text-center mb-4">
             İletişim
           </h1>
-          <p className="text-center text-muted-foreground max-w-xl mx-auto mb-16">
+          <p className="text-center text-muted-foreground max-w-xl mx-auto mb-8">
             Sorularınız veya tamir talepleriniz için bize ulaşın.
           </p>
+        </FadeInSection>
+
+        {/* Store image */}
+        <FadeInSection>
+          <div className="rounded-2xl overflow-hidden mb-12 max-w-4xl mx-auto">
+            <img src={IMAGES.store} alt="MG İletişim mağaza" className="w-full h-64 md:h-80 object-cover" loading="lazy" />
+          </div>
         </FadeInSection>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
@@ -39,29 +50,10 @@ const ContactPage = () => {
           <FadeInSection>
             <form onSubmit={handleSubmit} className="space-y-5 p-8 rounded-xl bg-card border border-border/50">
               <h2 className="font-heading font-bold text-xl mb-2">Bize Yazın</h2>
-              <Input
-                placeholder="Ad Soyad"
-                value={form.name}
-                onChange={(e) => setForm({ ...form, name: e.target.value })}
-                required
-              />
-              <Input
-                placeholder="Telefon Numarası"
-                value={form.phone}
-                onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                required
-              />
-              <Input
-                placeholder="Cihaz Modeli"
-                value={form.model}
-                onChange={(e) => setForm({ ...form, model: e.target.value })}
-              />
-              <Textarea
-                placeholder="Sorun Açıklaması"
-                value={form.desc}
-                onChange={(e) => setForm({ ...form, desc: e.target.value })}
-                rows={4}
-              />
+              <Input placeholder="Ad Soyad" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} required />
+              <Input placeholder="Telefon Numarası" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} required />
+              <Input placeholder="Cihaz Modeli" value={form.model} onChange={(e) => setForm({ ...form, model: e.target.value })} />
+              <Textarea placeholder="Sorun Açıklaması" value={form.desc} onChange={(e) => setForm({ ...form, desc: e.target.value })} rows={4} />
               <Button type="submit" className="w-full">Gönder</Button>
             </form>
           </FadeInSection>
@@ -74,9 +66,7 @@ const ContactPage = () => {
                   <c.icon className="w-8 h-8 text-primary mb-3" />
                   <h3 className="font-heading font-semibold mb-1">{c.title}</h3>
                   {c.link ? (
-                    <a href={c.link} target="_blank" rel="noopener noreferrer" className="text-sm text-primary hover:underline">
-                      {c.value}
-                    </a>
+                    <a href={c.link} target="_blank" rel="noopener noreferrer" className="text-sm text-primary hover:underline">{c.value}</a>
                   ) : (
                     <p className="text-sm text-muted-foreground">{c.value}</p>
                   )}
