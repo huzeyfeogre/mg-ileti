@@ -115,6 +115,7 @@ const PhonesForSalePage = () => (
                   </a>
                 </Button>
               </div>
+              </div>
             </div>
           </FadeInSection>
         ))}
