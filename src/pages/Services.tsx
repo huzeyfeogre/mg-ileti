@@ -11,7 +11,7 @@ const IMAGES = {
   waterDamage: "https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=800&q=70&auto=format&fit=crop",
   repairTools: "https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=800&q=70&auto=format&fit=crop",
   repairWorkbench: "https://images.unsplash.com/photo-1530893609608-32a9af3aa95c?w=800&q=70&auto=format&fit=crop",
-  soldering: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=70&auto=format&fit=crop",
+  soldering: "https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?w=800&q=70&auto=format&fit=crop",
   charging: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=800&q=70&auto=format&fit=crop",
 };
 
