@@ -12,9 +12,9 @@ const IMAGES = {
   hero: "https://images.unsplash.com/photo-1512054502232-10a0a035d672?w=1600&q=70&auto=format&fit=crop",
   screenRepair: "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=800&q=70&auto=format&fit=crop",
   accessories: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=70&auto=format&fit=crop",
-  store: "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=1000&q=70&auto=format&fit=crop",
+  store: "https://images.unsplash.com/photo-1610792516307-ea5acd9c3b00?w=1000&q=70&auto=format&fit=crop",
   repair2: "https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?w=800&q=70&auto=format&fit=crop",
-  tools: "https://images.unsplash.com/photo-1580974852861-c381510bc98a?w=800&q=70&auto=format&fit=crop",
+  tools: "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=800&q=70&auto=format&fit=crop",
 };
 
 const whyUs = [
