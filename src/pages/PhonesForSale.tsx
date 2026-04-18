@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Smartphone, Battery, Shield, Star, MessageCircle } from "lucide-react";
 
 const IMAGES = {
-  phones: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&q=80&auto=format&fit=crop",
-  showcase: "https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=800&q=80&auto=format&fit=crop",
+  phones: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&q=70&auto=format&fit=crop",
+  showcase: "https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=800&q=70&auto=format&fit=crop",
 };
 
 const phones = [

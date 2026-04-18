@@ -161,10 +161,10 @@ const Index = () => (
               <img src={IMAGES.accessories} alt="Kulaklık ve aksesuarlar" className="w-full h-56 object-cover" loading="lazy" />
             </div>
             <div className="rounded-2xl overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1601593346740-925612772716?w=800&q=80&auto=format&fit=crop" alt="Telefon kılıfları" className="w-full h-56 object-cover" loading="lazy" />
+              <img src="https://images.unsplash.com/photo-1601593346740-925612772716?w=800&q=70&auto=format&fit=crop" alt="Telefon kılıfları" className="w-full h-56 object-cover" loading="lazy" />
             </div>
             <div className="rounded-2xl overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=800&q=80&auto=format&fit=crop" alt="Şarj cihazları" className="w-full h-56 object-cover" loading="lazy" />
+              <img src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=800&q=70&auto=format&fit=crop" alt="Şarj cihazları" className="w-full h-56 object-cover" loading="lazy" />
             </div>
           </div>
         </FadeInSection>

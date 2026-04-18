@@ -5,13 +5,13 @@ import {
 } from "lucide-react";
 
 const IMAGES = {
-  store: "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=1280&q=80&auto=format&fit=crop",
-  phoneCases: "https://images.unsplash.com/photo-1601593346740-925612772716?w=800&q=80&auto=format&fit=crop",
-  chargers: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=800&q=80&auto=format&fit=crop",
-  headphones: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=80&auto=format&fit=crop",
-  screenProtector: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&q=80&auto=format&fit=crop",
-  powerbank: "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=800&q=80&auto=format&fit=crop",
-  bluetooth: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=800&q=80&auto=format&fit=crop",
+  store: "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=1000&q=70&auto=format&fit=crop",
+  phoneCases: "https://images.unsplash.com/photo-1601593346740-925612772716?w=800&q=70&auto=format&fit=crop",
+  chargers: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=800&q=70&auto=format&fit=crop",
+  headphones: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=70&auto=format&fit=crop",
+  screenProtector: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&q=70&auto=format&fit=crop",
+  powerbank: "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=800&q=70&auto=format&fit=crop",
+  bluetooth: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=800&q=70&auto=format&fit=crop",
 };
 
 const categories = [

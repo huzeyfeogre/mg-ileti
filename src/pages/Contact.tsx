@@ -7,7 +7,7 @@ import { MapPin, Phone, Clock, MessageCircle } from "lucide-react";
 import { toast } from "sonner";
 
 const IMAGES = {
-  store: "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=1280&q=80&auto=format&fit=crop",
+  store: "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=1000&q=70&auto=format&fit=crop",
 };
 
 const contactInfo = [

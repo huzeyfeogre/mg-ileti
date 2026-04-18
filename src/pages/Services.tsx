@@ -5,14 +5,14 @@ import {
 } from "lucide-react";
 
 const IMAGES = {
-  screenRepair: "https://images.unsplash.com/photo-1597673030062-0a0f1a801a31?w=800&q=80&auto=format&fit=crop",
-  batteryRepair: "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=800&q=80&auto=format&fit=crop",
-  motherboard: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80&auto=format&fit=crop",
-  waterDamage: "https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=800&q=80&auto=format&fit=crop",
-  repairTools: "https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=800&q=80&auto=format&fit=crop",
-  repairWorkbench: "https://images.unsplash.com/photo-1530893609608-32a9af3aa95c?w=800&q=80&auto=format&fit=crop",
-  soldering: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=80&auto=format&fit=crop",
-  charging: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=800&q=80&auto=format&fit=crop",
+  screenRepair: "https://images.unsplash.com/photo-1597673030062-0a0f1a801a31?w=800&q=70&auto=format&fit=crop",
+  batteryRepair: "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=800&q=70&auto=format&fit=crop",
+  motherboard: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=70&auto=format&fit=crop",
+  waterDamage: "https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=800&q=70&auto=format&fit=crop",
+  repairTools: "https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=800&q=70&auto=format&fit=crop",
+  repairWorkbench: "https://images.unsplash.com/photo-1530893609608-32a9af3aa95c?w=800&q=70&auto=format&fit=crop",
+  soldering: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=70&auto=format&fit=crop",
+  charging: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=800&q=70&auto=format&fit=crop",
 };
 
 const services = [

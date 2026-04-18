@@ -2,10 +2,10 @@ import FadeInSection from "@/components/FadeInSection";
 import { Target, Eye, Wrench, ShoppingCart, Award, Clock, Users, ThumbsUp, CheckCircle, Smartphone } from "lucide-react";
 
 const IMAGES = {
-  store: "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=1280&q=80&auto=format&fit=crop",
-  workshop: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1920&q=80&auto=format&fit=crop",
-  repair: "https://images.unsplash.com/photo-1597673030062-0a0f1a801a31?w=800&q=80&auto=format&fit=crop",
-  tools: "https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=800&q=80&auto=format&fit=crop",
+  store: "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=1000&q=70&auto=format&fit=crop",
+  workshop: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1600&q=70&auto=format&fit=crop",
+  repair: "https://images.unsplash.com/photo-1597673030062-0a0f1a801a31?w=800&q=70&auto=format&fit=crop",
+  tools: "https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=800&q=70&auto=format&fit=crop",
 };
 
 const brands = ["Apple", "Samsung", "Xiaomi", "Huawei", "Oppo", "Realme", "OnePlus", "Nothing", "Google Pixel"];
