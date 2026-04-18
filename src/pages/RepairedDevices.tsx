@@ -2,10 +2,10 @@ import FadeInSection from "@/components/FadeInSection";
 import { Smartphone, Tablet, Watch, Headphones } from "lucide-react";
 
 const IMAGES = {
-  screenRepair: "https://images.unsplash.com/photo-1597673030062-0a0f1a801a31?w=800&q=80&auto=format&fit=crop",
-  motherboard: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80&auto=format&fit=crop",
-  repairDesk: "https://images.unsplash.com/photo-1530893609608-32a9af3aa95c?w=800&q=80&auto=format&fit=crop",
-  tools: "https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=800&q=80&auto=format&fit=crop",
+  screenRepair: "https://images.unsplash.com/photo-1597673030062-0a0f1a801a31?w=800&q=70&auto=format&fit=crop",
+  motherboard: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=70&auto=format&fit=crop",
+  repairDesk: "https://images.unsplash.com/photo-1530893609608-32a9af3aa95c?w=800&q=70&auto=format&fit=crop",
+  tools: "https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=800&q=70&auto=format&fit=crop",
 };
 
 const devices = [

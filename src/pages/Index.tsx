@@ -9,12 +9,12 @@ import {
 } from "lucide-react";
 
 const IMAGES = {
-  hero: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1920&q=80&auto=format&fit=crop",
-  screenRepair: "https://images.unsplash.com/photo-1597673030062-0a0f1a801a31?w=800&q=80&auto=format&fit=crop",
-  accessories: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=80&auto=format&fit=crop",
-  store: "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=1280&q=80&auto=format&fit=crop",
-  repair2: "https://images.unsplash.com/photo-1530893609608-32a9af3aa95c?w=800&q=80&auto=format&fit=crop",
-  tools: "https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=800&q=80&auto=format&fit=crop",
+  hero: "https://images.unsplash.com/photo-1512054502232-10a0a035d672?w=1600&q=70&auto=format&fit=crop",
+  screenRepair: "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=800&q=70&auto=format&fit=crop",
+  accessories: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=70&auto=format&fit=crop",
+  store: "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=1000&q=70&auto=format&fit=crop",
+  repair2: "https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?w=800&q=70&auto=format&fit=crop",
+  tools: "https://images.unsplash.com/photo-1580974852861-c381510bc98a?w=800&q=70&auto=format&fit=crop",
 };
 
 const whyUs = [
@@ -52,10 +52,12 @@ const Index = () => (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden">
       <img
         src={IMAGES.hero}
-        alt="MG İletişim telefon tamir atölyesi"
+        alt="Telefon tamiri yapan teknisyen"
         className="absolute inset-0 w-full h-full object-cover"
-        width={1920}
-        height={1080}
+        width={1600}
+        height={900}
+        fetchPriority="high"
+        decoding="async"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/85 to-background" />
       <div className="container mx-auto px-4 relative z-10 text-center">
@@ -159,10 +161,10 @@ const Index = () => (
               <img src={IMAGES.accessories} alt="Kulaklık ve aksesuarlar" className="w-full h-56 object-cover" loading="lazy" />
             </div>
             <div className="rounded-2xl overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1601593346740-925612772716?w=800&q=80&auto=format&fit=crop" alt="Telefon kılıfları" className="w-full h-56 object-cover" loading="lazy" />
+              <img src="https://images.unsplash.com/photo-1601593346740-925612772716?w=800&q=70&auto=format&fit=crop" alt="Telefon kılıfları" className="w-full h-56 object-cover" loading="lazy" />
             </div>
             <div className="rounded-2xl overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=800&q=80&auto=format&fit=crop" alt="Şarj cihazları" className="w-full h-56 object-cover" loading="lazy" />
+              <img src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=800&q=70&auto=format&fit=crop" alt="Şarj cihazları" className="w-full h-56 object-cover" loading="lazy" />
             </div>
           </div>
         </FadeInSection>
