@@ -56,7 +56,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2.5 group">
-          <img src={logo} alt="Hm Ekran Dünyası" className="w-10 h-10 object-contain group-hover:scale-105 transition-transform" />
+          <img src={logo} alt="Hm Ekran Dünyası" className="w-14 h-14 md:w-16 md:h-16 object-contain group-hover:scale-105 transition-transform" />
           <span className="font-heading font-bold text-lg tracking-tight">Hm Ekran Dünyası</span>
         </Link>
 
@@ -158,7 +158,7 @@ const Navbar = () => {
           <SheetContent side="right" className="w-[85vw] max-w-sm p-0 bg-background border-border/40 flex flex-col">
             <SheetHeader className="px-5 py-4 border-b border-border/30">
               <SheetTitle className="flex items-center gap-2.5 text-left">
-                <img src={logo} alt="Hm Ekran Dünyası" className="w-10 h-10 object-contain" />
+                <img src={logo} alt="Hm Ekran Dünyası" className="w-14 h-14 object-contain" />
                 <span className="font-heading font-bold text-lg tracking-tight">Hm Ekran Dünyası</span>
               </SheetTitle>
             </SheetHeader>
