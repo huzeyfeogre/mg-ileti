@@ -3,6 +3,7 @@ import { Smartphone, Phone, Menu, ChevronDown, Wrench, ShoppingBag, Monitor } fr
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { useState, useRef, useEffect } from "react";
+import logo from "@/assets/logo.png";
 
 const mainLinks = [
   { to: "/", label: "Ana Sayfa" },
@@ -55,9 +56,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2.5 group">
-          <div className="w-9 h-9 rounded-lg bg-primary/15 flex items-center justify-center group-hover:bg-primary/25 transition-colors">
-            <Smartphone className="w-5 h-5 text-primary" />
-          </div>
+          <img src={logo} alt="Hm Ekran Dünyası" className="w-10 h-10 object-contain group-hover:scale-105 transition-transform" />
           <span className="font-heading font-bold text-lg tracking-tight">Hm Ekran Dünyası</span>
         </Link>
 
@@ -159,9 +158,7 @@ const Navbar = () => {
           <SheetContent side="right" className="w-[85vw] max-w-sm p-0 bg-background border-border/40 flex flex-col">
             <SheetHeader className="px-5 py-4 border-b border-border/30">
               <SheetTitle className="flex items-center gap-2.5 text-left">
-                <div className="w-9 h-9 rounded-lg bg-primary/15 flex items-center justify-center">
-                  <Smartphone className="w-5 h-5 text-primary" />
-                </div>
+                <img src={logo} alt="Hm Ekran Dünyası" className="w-10 h-10 object-contain" />
                 <span className="font-heading font-bold text-lg tracking-tight">Hm Ekran Dünyası</span>
               </SheetTitle>
             </SheetHeader>

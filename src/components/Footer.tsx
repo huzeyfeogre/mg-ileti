@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
-import { Smartphone, MapPin, Phone, Clock } from "lucide-react";
+import { MapPin, Phone, Clock } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Footer = () => (
   <footer className="border-t border-border/50 bg-card/50">
     <div className="container mx-auto px-4 py-12">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div>
-          <div className="flex items-center gap-2 font-heading font-bold text-lg mb-3">
-            <Smartphone className="w-5 h-5 text-primary" />
+          <div className="flex items-center gap-2.5 font-heading font-bold text-lg mb-3">
+            <img src={logo} alt="Hm Ekran Dünyası" className="w-9 h-9 object-contain" />
             Hm Ekran Dünyası
           </div>
           <p className="text-sm text-muted-foreground">
