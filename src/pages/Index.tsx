@@ -43,7 +43,7 @@ const products = [
 const testimonials = [
   { name: "Ahmet Y.", text: "Ekranım 1 saatte değiştirildi, çok memnun kaldım. Fiyatlar da gayet uygun.", stars: 5 },
   { name: "Fatma K.", text: "Su hasarından sonra telefonumu kurtardılar. Harika bir ekip, herkese tavsiye ederim!", stars: 5 },
-  { name: "Mehmet S.", text: "Batarya değişimi yaptırdım, telefon ilk günkü gibi oldu. Teşekkürler MG İletişim!", stars: 5 },
+  { name: "Mehmet S.", text: "Batarya değişimi yaptırdım, telefon ilk günkü gibi oldu. Teşekkürler Hm Ekran Dünyası!", stars: 5 },
 ];
 
 const Index = () => (
@@ -221,7 +221,7 @@ const Index = () => (
         <FadeInSection>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             <div className="rounded-2xl overflow-hidden">
-              <img src={IMAGES.store} alt="MG İletişim mağaza içi" className="w-full h-64 md:h-80 object-cover" loading="lazy" />
+              <img src={IMAGES.store} alt="Hm Ekran Dünyası mağaza içi" className="w-full h-64 md:h-80 object-cover" loading="lazy" />
             </div>
             <div className="rounded-2xl overflow-hidden">
               <img src={IMAGES.tools} alt="Tamir aletleri ve ekipmanlar" className="w-full h-64 md:h-80 object-cover" loading="lazy" />
@@ -257,7 +257,7 @@ const Index = () => (
         <FadeInSection>
           <div className="rounded-xl overflow-hidden border border-border/50 h-64 bg-muted flex items-center justify-center text-muted-foreground">
             <iframe
-              title="MG İletişim Konum"
+              title="Hm Ekran Dünyası Konum"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24116.742890071!2d29.25!3d40.96!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac8b0a0a0a0a1%3A0x0!2sSultanbeyli!5e0!3m2!1str!2str!4v1"
               width="100%"
               height="100%"

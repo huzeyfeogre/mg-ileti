@@ -38,7 +38,7 @@ const ProductsPage = () => (
       {/* Hero banner */}
       <FadeInSection>
         <div className="rounded-2xl overflow-hidden mb-12">
-          <img src={IMAGES.store} alt="MG İletişim mağaza" className="w-full h-72 md:h-96 object-cover" loading="lazy" />
+          <img src={IMAGES.store} alt="Hm Ekran Dünyası mağaza" className="w-full h-72 md:h-96 object-cover" loading="lazy" />
         </div>
       </FadeInSection>
 
