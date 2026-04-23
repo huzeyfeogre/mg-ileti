@@ -31,7 +31,7 @@ const Footer = () => (
           <h4 className="font-heading font-semibold mb-3">İletişim</h4>
           <div className="space-y-2 text-sm text-muted-foreground">
             <div className="flex items-start gap-2"><MapPin className="w-4 h-4 mt-0.5 text-primary" /> Mehmet Akif Mah., İpekyolu Sk. No:44, Sultanbeyli/İstanbul</div>
-            <div className="flex items-center gap-2"><Phone className="w-4 h-4 text-primary" /> +90 500 123 45 67</div>
+            <div className="flex items-center gap-2"><Phone className="w-4 h-4 text-primary" /> +90 534 420 57 35</div>
             <div className="flex items-center gap-2"><Clock className="w-4 h-4 text-primary" /> Pzt–Cmt 09:00–20:00</div>
           </div>
         </div>

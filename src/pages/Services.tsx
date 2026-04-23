@@ -121,7 +121,7 @@ const ServicesPage = () => (
                 </ul>
                 <p className="text-xs text-muted-foreground mb-4 italic">⏱ {s.time}</p>
                 <Button asChild className="w-full">
-                  <a href="https://wa.me/905001234567" target="_blank" rel="noopener noreferrer">
+                  <a href="https://wa.me/905344205735" target="_blank" rel="noopener noreferrer">
                     Fiyat Al
                   </a>
                 </Button>

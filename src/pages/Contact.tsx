@@ -13,9 +13,9 @@ const IMAGES = {
 
 const contactInfo = [
   { icon: MapPin, title: "Adres", value: "Mehmet Akif Mah., İpekyolu Sk. No:44, Sultanbeyli/İstanbul" },
-  { icon: Phone, title: "Telefon", value: "+90 500 123 45 67" },
+  { icon: Phone, title: "Telefon", value: "+90 534 420 57 35" },
   { icon: Clock, title: "Çalışma Saatleri", value: "Pzt–Cmt 09:00–20:00" },
-  { icon: MessageCircle, title: "WhatsApp", value: "+90 500 123 45 67", link: "https://wa.me/905001234567" },
+  { icon: MessageCircle, title: "WhatsApp", value: "+90 534 420 57 35", link: "https://wa.me/905344205735" },
 ];
 
 const ContactPage = () => {
