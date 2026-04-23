@@ -5,13 +5,14 @@ import { Textarea } from "@/components/ui/textarea";
 import FadeInSection from "@/components/FadeInSection";
 import { MapPin, Phone, Clock, MessageCircle } from "lucide-react";
 import { toast } from "sonner";
+import storeFront from "@/assets/store/storefront.webp";
 
 const IMAGES = {
-  store: "https://images.unsplash.com/photo-1607936854279-55e8a4c64888?w=1200&q=70&auto=format&fit=crop",
+  store: storeFront,
 };
 
 const contactInfo = [
-  { icon: MapPin, title: "Adres", value: "Sultanbeyli, İstanbul" },
+  { icon: MapPin, title: "Adres", value: "Mehmet Akif Mah., İpekyolu Sk. No:44, Sultanbeyli/İstanbul" },
   { icon: Phone, title: "Telefon", value: "+90 500 123 45 67" },
   { icon: Clock, title: "Çalışma Saatleri", value: "Pzt–Cmt 09:00–20:00" },
   { icon: MessageCircle, title: "WhatsApp", value: "+90 500 123 45 67", link: "https://wa.me/905001234567" },
@@ -81,7 +82,7 @@ const ContactPage = () => {
           <div className="rounded-xl overflow-hidden border border-border/50 h-80">
             <iframe
               title="Hm Ekran Dünyası Konum"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24116.742890071!2d29.25!3d40.96!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac8b0a0a0a0a1%3A0x0!2sSultanbeyli!5e0!3m2!1str!2str!4v1"
+              src="https://www.google.com/maps?q=Mehmet+Akif+Mah.+%C4%B0pekyolu+Sk.+No+44+Sultanbeyli+%C4%B0stanbul&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0 }}

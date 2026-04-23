@@ -4,8 +4,10 @@ import {
   ShoppingBag, Plug, Headphones, Layers, BatteryCharging, Bluetooth,
 } from "lucide-react";
 
+import storeInterior from "@/assets/store/interior.webp";
+
 const IMAGES = {
-  store: "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=1000&q=70&auto=format&fit=crop",
+  store: storeInterior,
   phoneCases: "https://images.unsplash.com/photo-1601593346740-925612772716?w=800&q=70&auto=format&fit=crop",
   chargers: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=800&q=70&auto=format&fit=crop",
   headphones: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=70&auto=format&fit=crop",
