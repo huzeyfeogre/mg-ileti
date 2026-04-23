@@ -7,14 +7,19 @@ import {
   ShoppingBag, Headphones, Layers,
   Star, MapPin, Phone, Clock,
 } from "lucide-react";
+import storeFront from "@/assets/store/storefront.webp";
+import storeInterior from "@/assets/store/interior.webp";
+import storeWorkshop from "@/assets/store/workshop.webp";
+import storeRepairBench from "@/assets/store/repair-bench.webp";
+import storeMicroscope from "@/assets/store/microscope.webp";
 
 const IMAGES = {
-  hero: "https://images.unsplash.com/photo-1512054502232-10a0a035d672?w=1600&q=70&auto=format&fit=crop",
-  screenRepair: "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=800&q=70&auto=format&fit=crop",
+  hero: storeFront,
+  screenRepair: storeRepairBench,
   accessories: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=70&auto=format&fit=crop",
-  store: "https://images.unsplash.com/photo-1610792516307-ea5acd9c3b00?w=1000&q=70&auto=format&fit=crop",
-  repair2: "https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?w=800&q=70&auto=format&fit=crop",
-  tools: "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=800&q=70&auto=format&fit=crop",
+  store: storeInterior,
+  repair2: storeMicroscope,
+  tools: storeWorkshop,
 };
 
 const whyUs = [
@@ -235,7 +240,7 @@ const Index = () => (
               <MapPin className="w-8 h-8 text-primary flex-shrink-0" />
               <div>
                 <h3 className="font-heading font-semibold">Adres</h3>
-                <p className="text-sm text-muted-foreground">Sultanbeyli, İstanbul</p>
+                <p className="text-sm text-muted-foreground">Mehmet Akif Mah., İpekyolu Sk. No:44, Sultanbeyli/İstanbul</p>
               </div>
             </div>
             <div className="flex items-center gap-4 p-6 rounded-xl bg-card border border-border/50">
@@ -258,7 +263,7 @@ const Index = () => (
           <div className="rounded-xl overflow-hidden border border-border/50 h-64 bg-muted flex items-center justify-center text-muted-foreground">
             <iframe
               title="Hm Ekran Dünyası Konum"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24116.742890071!2d29.25!3d40.96!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac8b0a0a0a0a1%3A0x0!2sSultanbeyli!5e0!3m2!1str!2str!4v1"
+              src="https://www.google.com/maps?q=Mehmet+Akif+Mah.+%C4%B0pekyolu+Sk.+No+44+Sultanbeyli+%C4%B0stanbul&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0 }}
