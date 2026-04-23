@@ -56,7 +56,7 @@ const ProductsPage = () => (
                 <h2 className="font-heading font-bold text-xl mb-3">{c.title}</h2>
                 <p className="text-sm text-muted-foreground flex-1 mb-6">{c.desc}</p>
                 <Button asChild variant="outline" className="w-full">
-                  <a href="https://wa.me/905001234567" target="_blank" rel="noopener noreferrer">
+                  <a href="https://wa.me/905344205735" target="_blank" rel="noopener noreferrer">
                     İncele
                   </a>
                 </Button>

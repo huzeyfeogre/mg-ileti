@@ -134,12 +134,12 @@ const Navbar = () => {
         {/* CTA */}
         <div className="hidden lg:flex items-center gap-3">
           <Button asChild size="sm" variant="outline" className="text-sm">
-            <a href="https://wa.me/905001234567" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/905344205735" target="_blank" rel="noopener noreferrer">
               💬 WhatsApp
             </a>
           </Button>
           <Button asChild size="sm" className="glow-pulse text-sm">
-            <a href="tel:+905001234567">
+            <a href="tel:+905344205735">
               <Phone className="w-4 h-4 mr-1.5" /> Hemen Ara
             </a>
           </Button>
@@ -213,12 +213,12 @@ const Navbar = () => {
 
             <div className="p-4 border-t border-border/30 space-y-2">
               <Button asChild size="sm" variant="outline" className="w-full">
-                <a href="https://wa.me/905001234567" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/905344205735" target="_blank" rel="noopener noreferrer">
                   💬 WhatsApp
                 </a>
               </Button>
               <Button asChild size="sm" className="w-full">
-                <a href="tel:+905001234567">
+                <a href="tel:+905344205735">
                   <Phone className="w-4 h-4 mr-1.5" /> Hemen Ara
                 </a>
               </Button>
