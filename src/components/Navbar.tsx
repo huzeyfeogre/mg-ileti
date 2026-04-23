@@ -58,7 +58,7 @@ const Navbar = () => {
           <div className="w-9 h-9 rounded-lg bg-primary/15 flex items-center justify-center group-hover:bg-primary/25 transition-colors">
             <Smartphone className="w-5 h-5 text-primary" />
           </div>
-          <span className="font-heading font-bold text-lg tracking-tight">MG İletişim</span>
+          <span className="font-heading font-bold text-lg tracking-tight">Hm Ekran Dünyası</span>
         </Link>
 
         {/* Desktop Nav */}
@@ -162,7 +162,7 @@ const Navbar = () => {
                 <div className="w-9 h-9 rounded-lg bg-primary/15 flex items-center justify-center">
                   <Smartphone className="w-5 h-5 text-primary" />
                 </div>
-                <span className="font-heading font-bold text-lg tracking-tight">MG İletişim</span>
+                <span className="font-heading font-bold text-lg tracking-tight">Hm Ekran Dünyası</span>
               </SheetTitle>
             </SheetHeader>
 

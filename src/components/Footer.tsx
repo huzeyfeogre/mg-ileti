@@ -8,7 +8,7 @@ const Footer = () => (
         <div>
           <div className="flex items-center gap-2 font-heading font-bold text-lg mb-3">
             <Smartphone className="w-5 h-5 text-primary" />
-            MG İletişim
+            Hm Ekran Dünyası
           </div>
           <p className="text-sm text-muted-foreground">
             Sultanbeyli'nin güvenilir telefon tamir ve aksesuar merkezi.
@@ -44,7 +44,7 @@ const Footer = () => (
       </div>
 
       <div className="mt-8 pt-6 border-t border-border/30 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} MG İletişim. Tüm hakları saklıdır.
+        © {new Date().getFullYear()} Hm Ekran Dünyası. Tüm hakları saklıdır.
       </div>
     </div>
   </footer>

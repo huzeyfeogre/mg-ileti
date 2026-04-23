@@ -11,7 +11,7 @@ const IMAGES = {
 const brands = ["Apple", "Samsung", "Xiaomi", "Huawei", "Oppo", "Realme", "OnePlus", "Nothing", "Google Pixel"];
 
 const team = [
-  { name: "Murat Bey", role: "İşletme Sahibi", desc: "MG İletişim'in kurucusu. Yıllarca sektörde edindiği tecrübeyle ekibi yönlendiren, müşteri memnuniyetini her şeyin önünde tutan lider." },
+  { name: "Murat Bey", role: "İşletme Sahibi", desc: "Hm Ekran Dünyası'in kurucusu. Yıllarca sektörde edindiği tecrübeyle ekibi yönlendiren, müşteri memnuniyetini her şeyin önünde tutan lider." },
   { name: "Hamza", role: "Teknisyen", desc: "Ekran değişimi, anakart tamiri ve mikro lehimleme konusunda uzman. Tüm marka ve modellerde hızlı ve kaliteli tamir yapıyor." },
   { name: "Arif", role: "Teknisyen & Satış", desc: "Hem tamir hem aksesuar satışında deneyimli. Müşterilere en uygun çözümü sunarak güler yüzlü hizmet veriyor." },
 ];
@@ -38,7 +38,7 @@ const AboutPage = () => (
           Hakkımızda
         </h1>
         <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-8">
-          MG İletişim olarak Sultanbeyli'de yıllardır hizmet veriyoruz. Müşteri memnuniyetini
+          Hm Ekran Dünyası olarak Sultanbeyli'de yıllardır hizmet veriyoruz. Müşteri memnuniyetini
           her zaman ön planda tutarak, kaliteli ve güvenilir telefon tamir ile aksesuar hizmeti sunuyoruz.
         </p>
       </FadeInSection>
@@ -50,7 +50,7 @@ const AboutPage = () => (
             <img src={IMAGES.workshop} alt="Telefon tamir atölyesi" className="w-full h-72 object-cover" loading="lazy" />
           </div>
           <div className="rounded-2xl overflow-hidden">
-            <img src={IMAGES.store} alt="MG İletişim mağaza" className="w-full h-72 object-cover" loading="lazy" />
+            <img src={IMAGES.store} alt="Hm Ekran Dünyası mağaza" className="w-full h-72 object-cover" loading="lazy" />
           </div>
         </div>
       </FadeInSection>
@@ -62,7 +62,7 @@ const AboutPage = () => (
             <h2 className="font-heading font-bold text-2xl mb-4">Hikayemiz</h2>
             <div className="space-y-4 text-muted-foreground">
               <p>
-                MG İletişim, Sultanbeyli'de küçük bir tamir atölyesi olarak yola çıktı. İlk günden itibaren
+                Hm Ekran Dünyası, Sultanbeyli'de küçük bir tamir atölyesi olarak yola çıktı. İlk günden itibaren
                 amacımız basitti: insanların teknolojik cihazlarını hızlı, uygun fiyatlı ve güvenilir bir
                 şekilde tamir etmek.
               </p>
