@@ -14,7 +14,156 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      phones_for_sale: {
+        Row: {
+          battery: string
+          color: string
+          condition: string
+          created_at: string
+          featured: boolean
+          id: string
+          image_url: string
+          name: string
+          price: string
+          sort_order: number
+          storage: string
+          updated_at: string
+          warranty: boolean
+        }
+        Insert: {
+          battery?: string
+          color?: string
+          condition?: string
+          created_at?: string
+          featured?: boolean
+          id?: string
+          image_url?: string
+          name: string
+          price?: string
+          sort_order?: number
+          storage?: string
+          updated_at?: string
+          warranty?: boolean
+        }
+        Update: {
+          battery?: string
+          color?: string
+          condition?: string
+          created_at?: string
+          featured?: boolean
+          id?: string
+          image_url?: string
+          name?: string
+          price?: string
+          sort_order?: number
+          storage?: string
+          updated_at?: string
+          warranty?: boolean
+        }
+        Relationships: []
+      }
+      products: {
+        Row: {
+          created_at: string
+          description: string
+          icon: string
+          id: string
+          image_url: string
+          sort_order: number
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string
+          icon?: string
+          id?: string
+          image_url?: string
+          sort_order?: number
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string
+          icon?: string
+          id?: string
+          image_url?: string
+          sort_order?: number
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      repaired_devices: {
+        Row: {
+          brand: string
+          created_at: string
+          icon: string
+          id: string
+          models: string[]
+          sort_order: number
+          updated_at: string
+        }
+        Insert: {
+          brand: string
+          created_at?: string
+          icon?: string
+          id?: string
+          models?: string[]
+          sort_order?: number
+          updated_at?: string
+        }
+        Update: {
+          brand?: string
+          created_at?: string
+          icon?: string
+          id?: string
+          models?: string[]
+          sort_order?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      services: {
+        Row: {
+          bullets: string[]
+          created_at: string
+          description: string
+          icon: string
+          id: string
+          image_url: string
+          sort_order: number
+          time_estimate: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          bullets?: string[]
+          created_at?: string
+          description?: string
+          icon?: string
+          id?: string
+          image_url?: string
+          sort_order?: number
+          time_estimate?: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          bullets?: string[]
+          created_at?: string
+          description?: string
+          icon?: string
+          id?: string
+          image_url?: string
+          sort_order?: number
+          time_estimate?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
