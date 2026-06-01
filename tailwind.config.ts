@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ["Syne", "ui-sans-serif", "system-ui", "sans-serif"],
-        body: ["'DM Sans'", "ui-sans-serif", "system-ui", "sans-serif"],
+        heading: ["Inter", "sans-serif"],
+        body: ["Inter", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
