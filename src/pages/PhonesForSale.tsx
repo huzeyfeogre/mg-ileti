@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import FadeInSection from "@/components/FadeInSection";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -69,9 +70,9 @@ const PhonesForSalePage = () => {
                     </div>
                   )}
                   {phone.image_url && (
-                    <div className="w-full h-44 overflow-hidden bg-muted">
+                    <Link to={`/satilik-telefonlar/${phone.id}`} className="block w-full h-44 overflow-hidden bg-muted">
                       <img src={phone.image_url} alt={`${phone.name} satılık`} className="w-full h-full object-cover" loading="lazy" />
-                    </div>
+                    </Link>
                   )}
                   <div className="p-6 flex flex-col flex-1">
                     <div className="flex items-center gap-3 mb-4">
@@ -79,7 +80,9 @@ const PhonesForSalePage = () => {
                         <Smartphone className="w-6 h-6 text-primary" />
                       </div>
                       <div>
-                        <h3 className="font-heading font-bold text-lg leading-tight">{phone.name}</h3>
+                        <h3 className="font-heading font-bold text-lg leading-tight">
+                          <Link to={`/satilik-telefonlar/${phone.id}`} className="hover:text-primary transition-colors">{phone.name}</Link>
+                        </h3>
                         <p className="text-xs text-muted-foreground">{phone.storage} • {phone.color}</p>
                       </div>
                     </div>
@@ -96,10 +99,10 @@ const PhonesForSalePage = () => {
                     </div>
                     <div className="mt-auto pt-4 border-t border-border/30 flex items-center justify-between">
                       <span className="font-heading font-extrabold text-xl text-primary">{phone.price}</span>
-                      <Button size="sm" variant="outline" asChild>
-                        <a href="https://wa.me/905344205735" target="_blank" rel="noopener noreferrer">
-                          <MessageCircle className="w-4 h-4 mr-1" /> Bilgi Al
-                        </a>
+                      <Button size="sm" asChild>
+                        <Link to={`/satilik-telefonlar/${phone.id}`}>
+                          <MessageCircle className="w-4 h-4 mr-1" /> İncele
+                        </Link>
                       </Button>
                     </div>
                   </div>

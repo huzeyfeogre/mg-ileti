@@ -14,6 +14,7 @@ import AboutPage from "./pages/About";
 import ContactPage from "./pages/Contact";
 import RepairedDevicesPage from "./pages/RepairedDevices";
 import PhonesForSalePage from "./pages/PhonesForSale";
+import PhoneDetailPage from "./pages/PhoneDetail";
 import NotFound from "./pages/NotFound";
 import AdminLogin from "./pages/admin/Login";
 import AdminLayout from "./pages/admin/AdminLayout";
@@ -41,6 +42,7 @@ const App = () => (
               <Route path="/urunlerimiz/:id" element={<ProductDetailPage />} />
               <Route path="/tamir-ettiklerimiz" element={<RepairedDevicesPage />} />
               <Route path="/satilik-telefonlar" element={<PhonesForSalePage />} />
+              <Route path="/satilik-telefonlar/:id" element={<PhoneDetailPage />} />
               <Route path="/hakkimizda" element={<AboutPage />} />
               <Route path="/iletisim" element={<ContactPage />} />
             </Route>
