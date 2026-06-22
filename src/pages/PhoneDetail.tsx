@@ -72,7 +72,7 @@ const PhoneDetailPage = () => {
           <ArrowLeft className="w-4 h-4 mr-1" /> Tüm telefonlar
         </Link>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 min-w-0">
           <FadeInSection>
             <div className="relative">
               {phone.featured && (
@@ -92,10 +92,10 @@ const PhoneDetailPage = () => {
             <h1 className="font-heading font-extrabold text-3xl md:text-4xl mb-2 break-words [overflow-wrap:anywhere]">{phone.name}</h1>
             <p className="text-muted-foreground mb-5 break-words [overflow-wrap:anywhere]">{phone.storage} • {phone.color}</p>
 
-            <div className="flex flex-wrap gap-2 mb-6">
-              <span className="px-3 py-1.5 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20">{phone.condition}</span>
+            <div className="flex flex-wrap gap-2 mb-6 min-w-0">
+              <span className="px-3 py-1.5 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20 break-words [overflow-wrap:anywhere]">{phone.condition}</span>
               <span className="px-3 py-1.5 rounded-full text-xs font-medium bg-muted text-muted-foreground border border-border flex items-center gap-1">
-                <Battery className="w-3 h-3" /> Batarya {phone.battery}
+                <Battery className="w-3 h-3 flex-shrink-0" /> <span className="break-words [overflow-wrap:anywhere]">Batarya {phone.battery}</span>
               </span>
               {phone.warranty && (
                 <span className="px-3 py-1.5 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20 flex items-center gap-1">
@@ -104,7 +104,7 @@ const PhoneDetailPage = () => {
               )}
             </div>
 
-            <div className="text-4xl font-heading font-extrabold text-primary mb-6">{phone.price}</div>
+            <div className="text-4xl font-heading font-extrabold text-primary mb-6 break-words [overflow-wrap:anywhere]">{phone.price}</div>
 
             {phone.long_description && (
               <div className="text-foreground/90 mb-6 whitespace-pre-line break-words [overflow-wrap:anywhere]">{phone.long_description}</div>
@@ -134,16 +134,16 @@ const PhoneDetailPage = () => {
             <h2 className="font-heading font-bold text-2xl md:text-3xl mb-8">Önerilen Telefonlar</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {recommended.map((r) => (
-                <Link key={r.id} to={`/satilik-telefonlar/${r.id}`} className="rounded-xl bg-card border border-border/50 hover-lift overflow-hidden block">
+                <Link key={r.id} to={`/satilik-telefonlar/${r.id}`} className="rounded-xl bg-card border border-border/50 hover-lift overflow-hidden block min-w-0">
                   {r.image_url ? (
                     <img src={r.image_url} alt={r.name} className="w-full h-44 object-cover" loading="lazy" />
                   ) : (
                     <div className="w-full h-44 bg-primary/5 flex items-center justify-center"><Smartphone className="w-12 h-12 text-primary/40" /></div>
                   )}
                   <div className="p-5">
-                    <h3 className="font-heading font-semibold mb-1">{r.name}</h3>
-                    <p className="text-xs text-muted-foreground mb-3">{r.storage} • {r.color}</p>
-                    <div className="text-primary font-bold">{r.price}</div>
+                    <h3 className="font-heading font-semibold mb-1 break-words [overflow-wrap:anywhere]">{r.name}</h3>
+                    <p className="text-xs text-muted-foreground mb-3 break-words [overflow-wrap:anywhere]">{r.storage} • {r.color}</p>
+                    <div className="text-primary font-bold break-words [overflow-wrap:anywhere]">{r.price}</div>
                   </div>
                 </Link>
               ))}
