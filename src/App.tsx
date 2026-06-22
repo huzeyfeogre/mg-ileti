@@ -22,6 +22,7 @@ import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminServices from "./pages/admin/AdminServices";
 import AdminRepairedDevices from "./pages/admin/AdminRepairedDevices";
 import AdminProducts from "./pages/admin/AdminProducts";
+import AdminProductItems from "./pages/admin/AdminProductItems";
 import AdminPhones from "./pages/admin/AdminPhones";
 
 const queryClient = new QueryClient();
