@@ -102,6 +102,9 @@ const AdminProducts = () => {
                 <td className="p-3 font-medium">{r.title}</td>
                 <td className="p-3 text-muted-foreground">{r.price}</td>
                 <td className="p-3 text-right">
+                  <Button size="sm" variant="outline" asChild className="mr-2">
+                    <Link to={`/admin/products/${r.id}/items`}><Boxes className="w-4 h-4 mr-1" /> Ürünler</Link>
+                  </Button>
                   <Button size="icon" variant="ghost" onClick={() => openEdit(r)}><Pencil className="w-4 h-4" /></Button>
                   <Button size="icon" variant="ghost" onClick={() => remove(r.id!)}><Trash2 className="w-4 h-4 text-destructive" /></Button>
                 </td>
