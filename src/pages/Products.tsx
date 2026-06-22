@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
 import FadeInSection from "@/components/FadeInSection";
 import { supabase } from "@/integrations/supabase/client";
 import { IconByName } from "@/lib/icons";
@@ -41,23 +40,24 @@ const ProductsPage = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {items.map((c) => (
               <FadeInSection key={c.id}>
-                <div className="rounded-xl bg-card border border-border/50 hover-lift text-center h-full flex flex-col overflow-hidden">
-                  <Link to={`/urunlerimiz/${c.id}`} className="block">
+                <Link
+                  to={`/urunlerimiz/${c.id}`}
+                  className="rounded-xl bg-card border border-border/50 hover-lift text-center h-full flex flex-col overflow-hidden transition-colors hover:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                >
+                  <div className="block">
                     {c.image_url && <img src={c.image_url} alt={c.title} className="w-full h-44 object-cover" loading="lazy" />}
-                  </Link>
+                  </div>
                   <div className="p-8 flex flex-col flex-1">
                     <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-5">
                       <IconByName name={c.icon} className="w-7 h-7 text-primary" />
                     </div>
-                    <h2 className="font-heading font-bold text-xl mb-3">
-                      <Link to={`/urunlerimiz/${c.id}`} className="hover:text-primary transition-colors">{c.title}</Link>
-                    </h2>
-                    <p className="text-sm text-muted-foreground flex-1 mb-4">{c.description}</p>
-                    <Button asChild className="w-full">
-                      <Link to={`/urunlerimiz/${c.id}`}>Ürünleri Gör →</Link>
-                    </Button>
+                    <h2 className="font-heading font-bold text-xl mb-3 break-words [overflow-wrap:anywhere]">{c.title}</h2>
+                    <p className="text-sm text-muted-foreground flex-1 mb-4 break-words [overflow-wrap:anywhere]">{c.description}</p>
+                    <span className="mt-auto inline-flex w-full items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors">
+                      Ürünleri Gör →
+                    </span>
                   </div>
-                </div>
+                </Link>
               </FadeInSection>
             ))}
           </div>
