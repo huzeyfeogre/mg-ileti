@@ -9,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { ArrowLeft, Pencil, Plus, Trash2 } from "lucide-react";
 import { toast } from "sonner";
+import { ListEditor } from "./ListEditor";
 
 type Item = {
   id?: string;
@@ -101,10 +102,13 @@ const AdminProductItems = () => {
             <div><Label>Açıklama</Label><Textarea value={draft.description} onChange={(e) => setDraft({ ...draft, description: e.target.value })} /></div>
             <div><Label>Fiyat</Label><Input value={draft.price} onChange={(e) => setDraft({ ...draft, price: e.target.value })} placeholder="199 ₺" /></div>
             <div><Label>Görsel URL</Label><Input value={draft.image_url} onChange={(e) => setDraft({ ...draft, image_url: e.target.value })} /></div>
-            <div>
-              <Label>Özellikler (her satıra bir madde)</Label>
-              <Textarea rows={3} value={draft.features.join("\n")} onChange={(e) => setDraft({ ...draft, features: e.target.value.split("\n").map((s) => s.trim()).filter(Boolean) })} />
-            </div>
+            <ListEditor
+              label="Özellikler"
+              values={draft.features}
+              onChange={(v) => setDraft({ ...draft, features: v })}
+              placeholder="Örn: Hızlı şarj destekli"
+              addLabel="Madde Ekle"
+            />
             <div><Label>Sıra</Label><Input type="number" value={draft.sort_order} onChange={(e) => setDraft({ ...draft, sort_order: +e.target.value })} /></div>
           </div>
           <DialogFooter><Button variant="outline" onClick={() => setOpen(false)}>İptal</Button><Button onClick={save}>Kaydet</Button></DialogFooter>

@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { Pencil, Trash2, Boxes } from "lucide-react";
 import { Link } from "react-router-dom";
+import { ListEditor } from "./ListEditor";
 import { toast } from "sonner";
 import { IconByName } from "@/lib/icons";
 
@@ -125,14 +126,20 @@ const AdminProducts = () => {
             <div><Label>Fiyat</Label><Input value={draft.price} onChange={(e) => setDraft({ ...draft, price: e.target.value })} placeholder="₺199" /></div>
             <div><Label>İkon (Lucide)</Label><Input value={draft.icon} onChange={(e) => setDraft({ ...draft, icon: e.target.value })} placeholder="ShoppingBag, Plug, Headphones..." /></div>
             <div><Label>Ana Görsel URL</Label><Input value={draft.image_url} onChange={(e) => setDraft({ ...draft, image_url: e.target.value })} /></div>
-            <div>
-              <Label>Galeri Görselleri (her satıra bir URL)</Label>
-              <Textarea rows={3} value={draft.gallery.join("\n")} onChange={(e) => setDraft({ ...draft, gallery: e.target.value.split("\n").map((s) => s.trim()).filter(Boolean) })} />
-            </div>
-            <div>
-              <Label>Özellikler (her satıra bir madde)</Label>
-              <Textarea rows={4} value={draft.features.join("\n")} onChange={(e) => setDraft({ ...draft, features: e.target.value.split("\n").map((s) => s.trim()).filter(Boolean) })} />
-            </div>
+            <ListEditor
+              label="Galeri Görselleri"
+              values={draft.gallery}
+              onChange={(v) => setDraft({ ...draft, gallery: v })}
+              placeholder="https://..."
+              addLabel="Resim Ekle"
+            />
+            <ListEditor
+              label="Özellikler"
+              values={draft.features}
+              onChange={(v) => setDraft({ ...draft, features: v })}
+              placeholder="Örn: 1 yıl garanti"
+              addLabel="Madde Ekle"
+            />
             <div>
               <Label>Önerilen Ürünler</Label>
               <div className="mt-2 rounded-lg border border-border/50 p-3 max-h-48 overflow-y-auto space-y-2">
