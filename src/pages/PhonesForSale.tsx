@@ -70,9 +70,9 @@ const PhonesForSalePage = () => {
                     </div>
                   )}
                   {phone.image_url && (
-                    <div className="w-full h-44 overflow-hidden bg-muted">
+                    <Link to={`/satilik-telefonlar/${phone.id}`} className="block w-full h-44 overflow-hidden bg-muted">
                       <img src={phone.image_url} alt={`${phone.name} satılık`} className="w-full h-full object-cover" loading="lazy" />
-                    </div>
+                    </Link>
                   )}
                   <div className="p-6 flex flex-col flex-1">
                     <div className="flex items-center gap-3 mb-4">
@@ -80,7 +80,9 @@ const PhonesForSalePage = () => {
                         <Smartphone className="w-6 h-6 text-primary" />
                       </div>
                       <div>
-                        <h3 className="font-heading font-bold text-lg leading-tight">{phone.name}</h3>
+                        <h3 className="font-heading font-bold text-lg leading-tight">
+                          <Link to={`/satilik-telefonlar/${phone.id}`} className="hover:text-primary transition-colors">{phone.name}</Link>
+                        </h3>
                         <p className="text-xs text-muted-foreground">{phone.storage} • {phone.color}</p>
                       </div>
                     </div>
