@@ -97,10 +97,10 @@ const PhonesForSalePage = () => {
                     </div>
                     <div className="mt-auto pt-4 border-t border-border/30 flex items-center justify-between">
                       <span className="font-heading font-extrabold text-xl text-primary">{phone.price}</span>
-                      <Button size="sm" variant="outline" asChild>
-                        <a href="https://wa.me/905344205735" target="_blank" rel="noopener noreferrer">
-                          <MessageCircle className="w-4 h-4 mr-1" /> Bilgi Al
-                        </a>
+                      <Button size="sm" asChild>
+                        <Link to={`/satilik-telefonlar/${phone.id}`}>
+                          <MessageCircle className="w-4 h-4 mr-1" /> İncele
+                        </Link>
                       </Button>
                     </div>
                   </div>
