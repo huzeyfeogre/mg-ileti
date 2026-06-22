@@ -128,14 +128,20 @@ const AdminPhones = () => {
               <Label>Detay Açıklaması</Label>
               <Textarea rows={4} value={draft.long_description} onChange={(e) => setDraft({ ...draft, long_description: e.target.value })} />
             </div>
-            <div>
-              <Label>Galeri Görselleri (her satıra bir URL)</Label>
-              <Textarea rows={3} value={draft.gallery.join("\n")} onChange={(e) => setDraft({ ...draft, gallery: e.target.value.split("\n").map((s) => s.trim()).filter(Boolean) })} />
-            </div>
-            <div>
-              <Label>Özellikler (her satıra bir madde)</Label>
-              <Textarea rows={4} value={draft.features.join("\n")} onChange={(e) => setDraft({ ...draft, features: e.target.value.split("\n").map((s) => s.trim()).filter(Boolean) })} />
-            </div>
+            <ListEditor
+              label="Galeri Görselleri"
+              values={draft.gallery}
+              onChange={(v) => setDraft({ ...draft, gallery: v })}
+              placeholder="https://..."
+              addLabel="Resim Ekle"
+            />
+            <ListEditor
+              label="Özellikler"
+              values={draft.features}
+              onChange={(v) => setDraft({ ...draft, features: v })}
+              placeholder="Örn: Face ID destekli"
+              addLabel="Madde Ekle"
+            />
             <div>
               <Label>Önerilen Telefonlar</Label>
               <div className="mt-2 rounded-lg border border-border/50 p-3 max-h-48 overflow-y-auto space-y-2">
