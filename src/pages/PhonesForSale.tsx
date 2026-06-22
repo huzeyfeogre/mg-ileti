@@ -61,7 +61,7 @@ const PhonesForSalePage = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {phones.map((phone) => (
               <FadeInSection key={phone.id}>
-                <div className="rounded-xl bg-card border border-border/50 hover-lift h-full flex flex-col relative overflow-hidden">
+                <Link to={`/satilik-telefonlar/${phone.id}`} className="rounded-xl bg-card border border-border/50 hover-lift h-full flex flex-col relative overflow-hidden hover:border-primary/40 transition-colors">
                   {phone.featured && (
                     <div className="absolute top-3 right-3 z-10">
                       <Badge className="bg-accent text-accent-foreground text-xs">
@@ -70,9 +70,9 @@ const PhonesForSalePage = () => {
                     </div>
                   )}
                   {phone.image_url && (
-                    <Link to={`/satilik-telefonlar/${phone.id}`} className="block w-full h-44 overflow-hidden bg-muted">
+                    <div className="w-full h-44 overflow-hidden bg-muted">
                       <img src={phone.image_url} alt={`${phone.name} satılık`} className="w-full h-full object-cover" loading="lazy" />
-                    </Link>
+                    </div>
                   )}
                   <div className="p-6 flex flex-col flex-1">
                     <div className="flex items-center gap-3 mb-4">
@@ -80,9 +80,7 @@ const PhonesForSalePage = () => {
                         <Smartphone className="w-6 h-6 text-primary" />
                       </div>
                       <div>
-                        <h3 className="font-heading font-bold text-lg leading-tight">
-                          <Link to={`/satilik-telefonlar/${phone.id}`} className="hover:text-primary transition-colors">{phone.name}</Link>
-                        </h3>
+                        <h3 className="font-heading font-bold text-lg leading-tight">{phone.name}</h3>
                         <p className="text-xs text-muted-foreground">{phone.storage} • {phone.color}</p>
                       </div>
                     </div>
@@ -99,14 +97,12 @@ const PhonesForSalePage = () => {
                     </div>
                     <div className="mt-auto pt-4 border-t border-border/30 flex items-center justify-between">
                       <span className="font-heading font-extrabold text-xl text-primary">{phone.price}</span>
-                      <Button size="sm" asChild>
-                        <Link to={`/satilik-telefonlar/${phone.id}`}>
-                          <MessageCircle className="w-4 h-4 mr-1" /> İncele
-                        </Link>
-                      </Button>
+                      <span className="inline-flex items-center text-sm text-primary font-medium">
+                        <MessageCircle className="w-4 h-4 mr-1" /> İncele →
+                      </span>
                     </div>
                   </div>
-                </div>
+                </Link>
               </FadeInSection>
             ))}
           </div>
