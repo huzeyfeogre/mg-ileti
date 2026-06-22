@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import FadeInSection from "@/components/FadeInSection";
 import { supabase } from "@/integrations/supabase/client";
 import { IconByName } from "@/lib/icons";
 import storeInterior from "@/assets/store/interior.webp";
 
-type Product = { id: string; title: string; description: string; icon: string; image_url: string };
+type Product = { id: string; title: string; description: string; icon: string; image_url: string; price: string };
 
 const ProductsPage = () => {
   const [items, setItems] = useState<Product[]>([]);
