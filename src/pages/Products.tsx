@@ -42,15 +42,20 @@ const ProductsPage = () => {
             {items.map((c) => (
               <FadeInSection key={c.id}>
                 <div className="rounded-xl bg-card border border-border/50 hover-lift text-center h-full flex flex-col overflow-hidden">
-                  {c.image_url && <img src={c.image_url} alt={c.title} className="w-full h-44 object-cover" loading="lazy" />}
+                  <Link to={`/urunlerimiz/${c.id}`} className="block">
+                    {c.image_url && <img src={c.image_url} alt={c.title} className="w-full h-44 object-cover" loading="lazy" />}
+                  </Link>
                   <div className="p-8 flex flex-col flex-1">
                     <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-5">
                       <IconByName name={c.icon} className="w-7 h-7 text-primary" />
                     </div>
-                    <h2 className="font-heading font-bold text-xl mb-3">{c.title}</h2>
-                    <p className="text-sm text-muted-foreground flex-1 mb-6">{c.description}</p>
-                    <Button asChild variant="outline" className="w-full">
-                      <a href="https://wa.me/905344205735" target="_blank" rel="noopener noreferrer">İncele</a>
+                    <h2 className="font-heading font-bold text-xl mb-3">
+                      <Link to={`/urunlerimiz/${c.id}`} className="hover:text-primary transition-colors">{c.title}</Link>
+                    </h2>
+                    <p className="text-sm text-muted-foreground flex-1 mb-4">{c.description}</p>
+                    {c.price && <div className="text-primary font-heading font-bold text-lg mb-4">{c.price}</div>}
+                    <Button asChild className="w-full">
+                      <Link to={`/urunlerimiz/${c.id}`}>İncele</Link>
                     </Button>
                   </div>
                 </div>
