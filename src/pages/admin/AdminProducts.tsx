@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { Pencil, Trash2, Boxes } from "lucide-react";
 import { Link } from "react-router-dom";
+import { ListEditor } from "./ListEditor";
 import { toast } from "sonner";
 import { IconByName } from "@/lib/icons";
 
