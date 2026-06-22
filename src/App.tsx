@@ -16,6 +16,7 @@ import RepairedDevicesPage from "./pages/RepairedDevices";
 import PhonesForSalePage from "./pages/PhonesForSale";
 import PhoneDetailPage from "./pages/PhoneDetail";
 import NotFound from "./pages/NotFound";
+import Trust from "./pages/Trust";
 import AdminLogin from "./pages/admin/Login";
 import AdminLayout from "./pages/admin/AdminLayout";
 import AdminDashboard from "./pages/admin/AdminDashboard";
@@ -46,6 +47,7 @@ const App = () => (
               <Route path="/satilik-telefonlar/:id" element={<PhoneDetailPage />} />
               <Route path="/hakkimizda" element={<AboutPage />} />
               <Route path="/iletisim" element={<ContactPage />} />
+              <Route path="/guvenlik" element={<Trust />} />
             </Route>
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/admin" element={<AdminLayout />}>
