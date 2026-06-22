@@ -53,9 +53,8 @@ const ProductsPage = () => {
                       <Link to={`/urunlerimiz/${c.id}`} className="hover:text-primary transition-colors">{c.title}</Link>
                     </h2>
                     <p className="text-sm text-muted-foreground flex-1 mb-4">{c.description}</p>
-                    {c.price && <div className="text-primary font-heading font-bold text-lg mb-4">{c.price}</div>}
                     <Button asChild className="w-full">
-                      <Link to={`/urunlerimiz/${c.id}`}>İncele</Link>
+                      <Link to={`/urunlerimiz/${c.id}`}>Ürünleri Gör →</Link>
                     </Button>
                   </div>
                 </div>
