@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import FadeInSection from "@/components/FadeInSection";
+import { ImageSlider, normalizeImageUrls } from "@/components/ImageSlider";
 import { supabase } from "@/integrations/supabase/client";
 import { ArrowLeft, Battery, Check, MessageCircle, Shield, Smartphone, Star } from "lucide-react";
 
@@ -27,7 +28,6 @@ const PhoneDetailPage = () => {
   const { id } = useParams();
   const [phone, setPhone] = useState<Phone | null>(null);
   const [recommended, setRecommended] = useState<Phone[]>([]);
-  const [activeImage, setActiveImage] = useState<string>("");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -37,7 +37,6 @@ const PhoneDetailPage = () => {
       const { data } = await supabase.from("phones_for_sale").select("*").eq("id", id).maybeSingle();
       const p = data as Phone | null;
       setPhone(p);
-      setActiveImage(p?.image_url || p?.gallery?.[0] || "");
       if (p?.recommended_ids?.length) {
         const { data: recs } = await supabase.from("phones_for_sale").select("*").in("id", p.recommended_ids);
         setRecommended((recs as Phone[]) ?? []);
@@ -63,7 +62,7 @@ const PhoneDetailPage = () => {
     );
   }
 
-  const images = [phone.image_url, ...(phone.gallery ?? [])].filter(Boolean);
+  const images = normalizeImageUrls([phone.image_url, ...(phone.gallery ?? [])]);
   const waMsg = encodeURIComponent(`Merhaba, "${phone.name}" (${phone.storage} ${phone.color}) hakkında bilgi almak istiyorum.`);
 
   return (
@@ -75,34 +74,23 @@ const PhoneDetailPage = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           <FadeInSection>
-            <div className="rounded-2xl overflow-hidden bg-card border border-border/50 aspect-square flex items-center justify-center relative">
+            <div className="relative">
               {phone.featured && (
                 <Badge className="absolute top-4 right-4 z-10 bg-accent text-accent-foreground"><Star className="w-3 h-3 mr-1" /> Öne Çıkan</Badge>
               )}
-              {activeImage ? (
-                <img src={activeImage} alt={phone.name} className="w-full h-full object-cover" />
-              ) : (
-                <Smartphone className="w-24 h-24 text-primary/40" />
-              )}
+              <ImageSlider
+                images={images}
+                alt={phone.name}
+                className="aspect-square flex items-center justify-center"
+                imageClassName="h-full aspect-square"
+                fallback={<div className="rounded-2xl overflow-hidden bg-card border border-border/50 aspect-square flex items-center justify-center"><Smartphone className="w-24 h-24 text-primary/40" /></div>}
+              />
             </div>
-            {images.length > 1 && (
-              <div className="flex gap-3 mt-4 overflow-x-auto">
-                {images.map((img) => (
-                  <button
-                    key={img}
-                    onClick={() => setActiveImage(img)}
-                    className={`w-20 h-20 rounded-lg overflow-hidden border-2 flex-shrink-0 ${activeImage === img ? "border-primary" : "border-border/30"}`}
-                  >
-                    <img src={img} alt="" className="w-full h-full object-cover" />
-                  </button>
-                ))}
-              </div>
-            )}
           </FadeInSection>
 
           <FadeInSection>
-            <h1 className="font-heading font-extrabold text-3xl md:text-4xl mb-2">{phone.name}</h1>
-            <p className="text-muted-foreground mb-5">{phone.storage} • {phone.color}</p>
+            <h1 className="font-heading font-extrabold text-3xl md:text-4xl mb-2 break-words [overflow-wrap:anywhere]">{phone.name}</h1>
+            <p className="text-muted-foreground mb-5 break-words [overflow-wrap:anywhere]">{phone.storage} • {phone.color}</p>
 
             <div className="flex flex-wrap gap-2 mb-6">
               <span className="px-3 py-1.5 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20">{phone.condition}</span>
@@ -119,15 +107,15 @@ const PhoneDetailPage = () => {
             <div className="text-4xl font-heading font-extrabold text-primary mb-6">{phone.price}</div>
 
             {phone.long_description && (
-              <div className="text-foreground/90 mb-6 whitespace-pre-line">{phone.long_description}</div>
+              <div className="text-foreground/90 mb-6 whitespace-pre-line break-words [overflow-wrap:anywhere]">{phone.long_description}</div>
             )}
 
             {phone.features?.length > 0 && (
               <ul className="space-y-2 mb-8">
                 {phone.features.map((f, i) => (
-                  <li key={i} className="flex items-start gap-2">
+                  <li key={i} className="flex items-start gap-2 min-w-0">
                     <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span>{f}</span>
+                    <span className="break-words [overflow-wrap:anywhere]">{f}</span>
                   </li>
                 ))}
               </ul>
