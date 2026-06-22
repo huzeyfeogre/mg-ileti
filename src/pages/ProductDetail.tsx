@@ -136,8 +136,8 @@ const ProductDetailPage = () => {
                         ))}
                       </ul>
                     )}
-                    <div className="mt-auto pt-4 border-t border-border/30 flex items-center justify-between gap-2">
-                      {it.price && <span className="font-heading font-bold text-primary">{it.price}</span>}
+                    <div className="mt-auto pt-4 border-t border-border/30 flex flex-wrap items-center justify-between gap-2 min-w-0">
+                      {it.price && <span className="font-heading font-bold text-primary break-words [overflow-wrap:anywhere]">{it.price}</span>}
                       <Button size="sm" asChild className="bg-[#25D366] hover:bg-[#25D366]/90 text-white ml-auto">
                         <a
                           href={`https://wa.me/905344205735?text=${encodeURIComponent(`Merhaba, "${it.title}" hakkında bilgi almak istiyorum.`)}`}
@@ -160,7 +160,7 @@ const ProductDetailPage = () => {
             <h2 className="font-heading font-bold text-2xl md:text-3xl mb-8">Diğer Kategoriler</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {recommended.map((r) => (
-                <Link key={r.id} to={`/urunlerimiz/${r.id}`} className="rounded-xl bg-card border border-border/50 hover-lift overflow-hidden block">
+                <Link key={r.id} to={`/urunlerimiz/${r.id}`} className="rounded-xl bg-card border border-border/50 hover-lift overflow-hidden block min-w-0">
                   {r.image_url ? (
                     <img src={r.image_url} alt={r.title} className="w-full h-44 object-cover" loading="lazy" />
                   ) : (
@@ -169,8 +169,8 @@ const ProductDetailPage = () => {
                     </div>
                   )}
                   <div className="p-5">
-                    <h3 className="font-heading font-semibold mb-1">{r.title}</h3>
-                    <p className="text-sm text-muted-foreground line-clamp-2">{r.description}</p>
+                    <h3 className="font-heading font-semibold mb-1 break-words [overflow-wrap:anywhere]">{r.title}</h3>
+                    <p className="text-sm text-muted-foreground line-clamp-2 break-words [overflow-wrap:anywhere]">{r.description}</p>
                   </div>
                 </Link>
               ))}
