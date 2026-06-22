@@ -21,10 +21,14 @@ export type Database = {
           condition: string
           created_at: string
           featured: boolean
+          features: string[]
+          gallery: string[]
           id: string
           image_url: string
+          long_description: string
           name: string
           price: string
+          recommended_ids: string[]
           sort_order: number
           storage: string
           updated_at: string
@@ -36,10 +40,14 @@ export type Database = {
           condition?: string
           created_at?: string
           featured?: boolean
+          features?: string[]
+          gallery?: string[]
           id?: string
           image_url?: string
+          long_description?: string
           name: string
           price?: string
+          recommended_ids?: string[]
           sort_order?: number
           storage?: string
           updated_at?: string
@@ -51,10 +59,14 @@ export type Database = {
           condition?: string
           created_at?: string
           featured?: boolean
+          features?: string[]
+          gallery?: string[]
           id?: string
           image_url?: string
+          long_description?: string
           name?: string
           price?: string
+          recommended_ids?: string[]
           sort_order?: number
           storage?: string
           updated_at?: string
