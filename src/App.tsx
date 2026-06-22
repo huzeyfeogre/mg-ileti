@@ -9,6 +9,7 @@ import { AuthProvider } from "@/hooks/useAuth";
 import Index from "./pages/Index";
 import ServicesPage from "./pages/Services";
 import ProductsPage from "./pages/Products";
+import ProductDetailPage from "./pages/ProductDetail";
 import AboutPage from "./pages/About";
 import ContactPage from "./pages/Contact";
 import RepairedDevicesPage from "./pages/RepairedDevices";
