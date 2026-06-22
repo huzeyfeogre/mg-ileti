@@ -38,6 +38,7 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/hizmetlerimiz" element={<ServicesPage />} />
               <Route path="/urunlerimiz" element={<ProductsPage />} />
+              <Route path="/urunlerimiz/:id" element={<ProductDetailPage />} />
               <Route path="/tamir-ettiklerimiz" element={<RepairedDevicesPage />} />
               <Route path="/satilik-telefonlar" element={<PhonesForSalePage />} />
               <Route path="/hakkimizda" element={<AboutPage />} />
