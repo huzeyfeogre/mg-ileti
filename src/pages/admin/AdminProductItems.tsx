@@ -9,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { ArrowLeft, Pencil, Plus, Trash2 } from "lucide-react";
 import { toast } from "sonner";
+import { ListEditor } from "./ListEditor";
 
 type Item = {
   id?: string;
