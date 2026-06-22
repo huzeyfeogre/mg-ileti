@@ -66,9 +66,15 @@ export type Database = {
         Row: {
           created_at: string
           description: string
+          features: string[]
+          gallery: string[]
           icon: string
           id: string
           image_url: string
+          long_description: string
+          price: string
+          recommended_ids: string[]
+          slug: string | null
           sort_order: number
           title: string
           updated_at: string
@@ -76,9 +82,15 @@ export type Database = {
         Insert: {
           created_at?: string
           description?: string
+          features?: string[]
+          gallery?: string[]
           icon?: string
           id?: string
           image_url?: string
+          long_description?: string
+          price?: string
+          recommended_ids?: string[]
+          slug?: string | null
           sort_order?: number
           title: string
           updated_at?: string
@@ -86,9 +98,15 @@ export type Database = {
         Update: {
           created_at?: string
           description?: string
+          features?: string[]
+          gallery?: string[]
           icon?: string
           id?: string
           image_url?: string
+          long_description?: string
+          price?: string
+          recommended_ids?: string[]
+          slug?: string | null
           sort_order?: number
           title?: string
           updated_at?: string
