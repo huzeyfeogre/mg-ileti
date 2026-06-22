@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import FadeInSection from "@/components/FadeInSection";
+import { ImageSlider } from "@/components/ImageSlider";
 import { supabase } from "@/integrations/supabase/client";
 import { IconByName } from "@/lib/icons";
 import { ArrowLeft, Check, MessageCircle } from "lucide-react";
@@ -79,27 +80,25 @@ const ProductDetailPage = () => {
         </Link>
 
         <FadeInSection>
-          <div className="rounded-2xl overflow-hidden bg-card border border-border/50 mb-10">
-            {product.image_url && (
-              <img src={product.image_url} alt={product.title} className="w-full h-64 md:h-80 object-cover" />
-            )}
-            <div className="p-8">
-              <div className="flex items-center gap-3 mb-3">
+          <div className="rounded-2xl overflow-hidden bg-card border border-border/50 mb-10 min-w-0">
+            <ImageSlider images={[product.image_url, ...(product.gallery ?? [])]} alt={product.title} className="rounded-none border-0" imageClassName="h-64 md:h-80" />
+            <div className="p-8 min-w-0">
+              <div className="flex items-center gap-3 mb-3 min-w-0">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
                   <IconByName name={product.icon} className="w-6 h-6 text-primary" />
                 </div>
-                <h1 className="font-heading font-extrabold text-3xl md:text-4xl">{product.title}</h1>
+                <h1 className="font-heading font-extrabold text-3xl md:text-4xl break-words [overflow-wrap:anywhere]">{product.title}</h1>
               </div>
-              <p className="text-muted-foreground">{product.description}</p>
+              <p className="text-muted-foreground break-words [overflow-wrap:anywhere]">{product.description}</p>
               {product.long_description && (
-                <div className="text-foreground/90 mt-4 whitespace-pre-line">{product.long_description}</div>
+                <div className="text-foreground/90 mt-4 whitespace-pre-line break-words [overflow-wrap:anywhere]">{product.long_description}</div>
               )}
               {product.features?.length > 0 && (
                 <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 mt-6">
                   {product.features.map((f, i) => (
-                    <li key={i} className="flex items-start gap-2">
+                    <li key={i} className="flex items-start gap-2 min-w-0">
                       <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>{f}</span>
+                      <span className="break-words [overflow-wrap:anywhere]">{f}</span>
                     </li>
                   ))}
                 </ul>
@@ -117,7 +116,7 @@ const ProductDetailPage = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {items.map((it) => (
               <FadeInSection key={it.id}>
-                <div className="rounded-xl bg-card border border-border/50 hover-lift overflow-hidden h-full flex flex-col">
+                <div className="rounded-xl bg-card border border-border/50 hover-lift overflow-hidden h-full flex flex-col min-w-0">
                   {it.image_url ? (
                     <img src={it.image_url} alt={it.title} className="w-full h-48 object-cover" loading="lazy" />
                   ) : (
@@ -125,14 +124,14 @@ const ProductDetailPage = () => {
                       <IconByName name={product.icon} className="w-12 h-12 text-primary/40" />
                     </div>
                   )}
-                  <div className="p-5 flex flex-col flex-1">
-                    <h3 className="font-heading font-semibold text-lg mb-2">{it.title}</h3>
-                    {it.description && <p className="text-sm text-muted-foreground mb-3">{it.description}</p>}
+                  <div className="p-5 flex flex-col flex-1 min-w-0">
+                    <h3 className="font-heading font-semibold text-lg mb-2 break-words [overflow-wrap:anywhere]">{it.title}</h3>
+                    {it.description && <p className="text-sm text-muted-foreground mb-3 break-words [overflow-wrap:anywhere]">{it.description}</p>}
                     {it.features?.length > 0 && (
                       <ul className="space-y-1 mb-4">
                         {it.features.map((f, i) => (
-                          <li key={i} className="text-xs text-muted-foreground flex items-start gap-1.5">
-                            <Check className="w-3.5 h-3.5 text-primary flex-shrink-0 mt-0.5" /> {f}
+                          <li key={i} className="text-xs text-muted-foreground flex items-start gap-1.5 min-w-0">
+                            <Check className="w-3.5 h-3.5 text-primary flex-shrink-0 mt-0.5" /> <span className="break-words [overflow-wrap:anywhere]">{f}</span>
                           </li>
                         ))}
                       </ul>
