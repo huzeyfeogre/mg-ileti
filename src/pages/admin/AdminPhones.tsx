@@ -9,6 +9,7 @@ import { Switch } from "@/components/ui/switch";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { Pencil, Trash2, Star } from "lucide-react";
 import { toast } from "sonner";
+import { ListEditor } from "./ListEditor";
 
 type Row = {
   id?: string;
