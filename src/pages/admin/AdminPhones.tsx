@@ -4,16 +4,34 @@ import { AdminHeader, AdminCard } from "./CrudHelpers";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { Pencil, Trash2, Star } from "lucide-react";
 import { toast } from "sonner";
 
 type Row = {
-  id?: string; name: string; storage: string; color: string; condition: string;
-  battery: string; price: string; warranty: boolean; featured: boolean; image_url: string; sort_order: number;
+  id?: string;
+  name: string;
+  storage: string;
+  color: string;
+  condition: string;
+  battery: string;
+  price: string;
+  warranty: boolean;
+  featured: boolean;
+  image_url: string;
+  long_description: string;
+  gallery: string[];
+  features: string[];
+  recommended_ids: string[];
+  sort_order: number;
 };
-const empty: Row = { name: "", storage: "", color: "", condition: "İyi", battery: "", price: "", warranty: true, featured: false, image_url: "", sort_order: 0 };
+const empty: Row = {
+  name: "", storage: "", color: "", condition: "İyi", battery: "", price: "",
+  warranty: true, featured: false, image_url: "",
+  long_description: "", gallery: [], features: [], recommended_ids: [], sort_order: 0,
+};
 
 const AdminPhones = () => {
   const [rows, setRows] = useState<Row[]>([]);
@@ -27,12 +45,22 @@ const AdminPhones = () => {
   useEffect(() => { load(); }, []);
 
   const openNew = () => { setDraft({ ...empty, sort_order: (rows.at(-1)?.sort_order ?? 0) + 1 }); setOpen(true); };
-  const openEdit = (r: Row) => { setDraft(r); setOpen(true); };
+  const openEdit = (r: Row) => {
+    setDraft({
+      ...r,
+      gallery: r.gallery ?? [],
+      features: r.features ?? [],
+      recommended_ids: r.recommended_ids ?? [],
+      long_description: r.long_description ?? "",
+    });
+    setOpen(true);
+  };
 
   const save = async () => {
+    const payload = { ...draft, recommended_ids: draft.recommended_ids.filter((x) => x !== draft.id) };
     const { error } = draft.id
-      ? await supabase.from("phones_for_sale").update(draft).eq("id", draft.id)
-      : await supabase.from("phones_for_sale").insert(draft);
+      ? await supabase.from("phones_for_sale").update(payload).eq("id", draft.id)
+      : await supabase.from("phones_for_sale").insert(payload);
     if (error) { toast.error(error.message); return; }
     toast.success("Kaydedildi"); setOpen(false); load();
   };
@@ -41,6 +69,15 @@ const AdminPhones = () => {
     const { error } = await supabase.from("phones_for_sale").delete().eq("id", id);
     if (error) { toast.error(error.message); return; }
     toast.success("Silindi"); load();
+  };
+
+  const toggleRecommended = (rid: string) => {
+    setDraft((d) => ({
+      ...d,
+      recommended_ids: d.recommended_ids.includes(rid)
+        ? d.recommended_ids.filter((x) => x !== rid)
+        : [...d.recommended_ids, rid],
+    }));
   };
 
   return (
@@ -72,7 +109,7 @@ const AdminPhones = () => {
       </AdminCard>
 
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
           <DialogHeader><DialogTitle>{draft.id ? "Telefonu Düzenle" : "Yeni Telefon"}</DialogTitle></DialogHeader>
           <div className="space-y-3">
             <div><Label>İsim</Label><Input value={draft.name} onChange={(e) => setDraft({ ...draft, name: e.target.value })} /></div>
@@ -85,10 +122,35 @@ const AdminPhones = () => {
               <div><Label>Batarya</Label><Input value={draft.battery} onChange={(e) => setDraft({ ...draft, battery: e.target.value })} placeholder="%92" /></div>
             </div>
             <div><Label>Fiyat</Label><Input value={draft.price} onChange={(e) => setDraft({ ...draft, price: e.target.value })} placeholder="18.500 ₺" /></div>
-            <div><Label>Görsel URL</Label><Input value={draft.image_url} onChange={(e) => setDraft({ ...draft, image_url: e.target.value })} /></div>
-            <div className="grid grid-cols-2 gap-3">
-              <div><Label>Sıra</Label><Input type="number" value={draft.sort_order} onChange={(e) => setDraft({ ...draft, sort_order: +e.target.value })} /></div>
+            <div><Label>Ana Görsel URL</Label><Input value={draft.image_url} onChange={(e) => setDraft({ ...draft, image_url: e.target.value })} /></div>
+            <div>
+              <Label>Detay Açıklaması</Label>
+              <Textarea rows={4} value={draft.long_description} onChange={(e) => setDraft({ ...draft, long_description: e.target.value })} />
             </div>
+            <div>
+              <Label>Galeri Görselleri (her satıra bir URL)</Label>
+              <Textarea rows={3} value={draft.gallery.join("\n")} onChange={(e) => setDraft({ ...draft, gallery: e.target.value.split("\n").map((s) => s.trim()).filter(Boolean) })} />
+            </div>
+            <div>
+              <Label>Özellikler (her satıra bir madde)</Label>
+              <Textarea rows={4} value={draft.features.join("\n")} onChange={(e) => setDraft({ ...draft, features: e.target.value.split("\n").map((s) => s.trim()).filter(Boolean) })} />
+            </div>
+            <div>
+              <Label>Önerilen Telefonlar</Label>
+              <div className="mt-2 rounded-lg border border-border/50 p-3 max-h-48 overflow-y-auto space-y-2">
+                {rows.filter((r) => r.id !== draft.id).length === 0 && (
+                  <p className="text-xs text-muted-foreground">Önermek için başka telefon ekleyin.</p>
+                )}
+                {rows.filter((r) => r.id !== draft.id).map((r) => (
+                  <label key={r.id} className="flex items-center gap-2 text-sm cursor-pointer">
+                    <input type="checkbox" checked={draft.recommended_ids.includes(r.id!)} onChange={() => toggleRecommended(r.id!)} />
+                    <span>{r.name} <span className="text-muted-foreground">— {r.price}</span></span>
+                  </label>
+                ))}
+              </div>
+              <p className="text-xs text-muted-foreground mt-1">Hiçbiri seçilmezse otomatik olarak diğer telefonlar önerilir.</p>
+            </div>
+            <div><Label>Sıra</Label><Input type="number" value={draft.sort_order} onChange={(e) => setDraft({ ...draft, sort_order: +e.target.value })} /></div>
             <div className="flex items-center gap-6 pt-2">
               <label className="flex items-center gap-2 text-sm"><Switch checked={draft.warranty} onCheckedChange={(v) => setDraft({ ...draft, warranty: v })} /> Garantili</label>
               <label className="flex items-center gap-2 text-sm"><Switch checked={draft.featured} onCheckedChange={(v) => setDraft({ ...draft, featured: v })} /> Öne Çıkan</label>
