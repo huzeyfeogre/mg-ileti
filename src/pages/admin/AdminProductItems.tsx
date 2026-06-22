@@ -102,7 +102,6 @@ const AdminProductItems = () => {
             <div><Label>Açıklama</Label><Textarea value={draft.description} onChange={(e) => setDraft({ ...draft, description: e.target.value })} /></div>
             <div><Label>Fiyat</Label><Input value={draft.price} onChange={(e) => setDraft({ ...draft, price: e.target.value })} placeholder="199 ₺" /></div>
             <div><Label>Görsel URL</Label><Input value={draft.image_url} onChange={(e) => setDraft({ ...draft, image_url: e.target.value })} /></div>
-            <div>
             <ListEditor
               label="Özellikler"
               values={draft.features}
