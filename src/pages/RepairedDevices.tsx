@@ -60,19 +60,21 @@ const RepairedDevicesPage = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {devices.map((d) => (
               <FadeInSection key={d.id}>
-                <div className="p-6 rounded-xl bg-card border border-border/50 hover-lift h-full">
-                  <div className="flex items-center gap-3 mb-4">
-                    <IconByName name={d.icon} className="w-8 h-8 text-primary" />
-                    <h3 className="font-heading font-bold text-lg">{d.brand}</h3>
+                <div className="p-6 rounded-xl bg-card border border-border/50 hover-lift h-full overflow-hidden">
+                  <div className="flex items-center gap-3 mb-4 min-w-0">
+                    <IconByName name={d.icon} className="w-8 h-8 text-primary shrink-0" />
+                    <h3 className="font-heading font-bold text-lg min-w-0 break-words [overflow-wrap:anywhere]">{d.brand}</h3>
                   </div>
                   <ul className="space-y-1.5">
                     {d.models.map((model) => (
-                      <li key={model} className="text-sm text-muted-foreground flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-primary/50" /> {model}
+                      <li key={model} className="text-sm text-muted-foreground flex items-start gap-2 min-w-0">
+                        <span className="w-1.5 h-1.5 mt-2 rounded-full bg-primary/50 shrink-0" />
+                        <span className="min-w-0 break-words [overflow-wrap:anywhere]">{model}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
+
               </FadeInSection>
             ))}
           </div>
