@@ -10,8 +10,9 @@ import { Lock } from "lucide-react";
 const Login = () => {
   const { user, signIn, signUp, loading } = useAuth();
   const nav = useNavigate();
-  const [email, setEmail] = useState("admin@mg.com");
-  const [password, setPassword] = useState("admin1234");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const [mode, setMode] = useState<"login" | "signup">("login");
   const [busy, setBusy] = useState(false);
 
